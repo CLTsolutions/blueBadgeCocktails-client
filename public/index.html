@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Base</title>
+
+    <!--This adds the favicon.ico to the main document
+      in our case this is the efa shield -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!--This shares meta data about our app with the browser-->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  </head>
+  <body>
+    <!--If the user has disabled javascript this will show to the screen
+    because we build our app in javascript our app needs it to run-->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!--This is where the ./src/index.js "mounts" our jsx-->
+    <div id="root"></div>
+  </body>
+</html>
