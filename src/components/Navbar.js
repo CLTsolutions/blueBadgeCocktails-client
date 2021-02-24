@@ -5,7 +5,7 @@ import {
     Switch
 } from 'react-router-dom'
 import Home from './Home'
-import Profile from './Profile'
+import MyBar from './profile/MyBar'
 import Splash from './Splash'
 import { render } from 'react-router-dom'
 
@@ -17,12 +17,12 @@ const Navbar = ( ) => {
         <nav>
 
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/profile'>Profile</Link></li>
+            <li><Link to='/mybar'>My Bar</Link></li>
             <li><Link to='/splash'>Login</Link></li>
             <div>
                 <Switch>
                     <Route exact path='/'><Home /></Route>
-                    <Route exact path='/profile'><Profile /></Route>
+                    <Route exact path='/mybar'><MyBar /></Route>
                     <Route exact path='/splash'><Splash /></Route>
                 </Switch>
             </div>
