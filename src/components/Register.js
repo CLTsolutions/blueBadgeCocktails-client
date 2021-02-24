@@ -3,7 +3,7 @@ const Register = ({ username, password, setUsername, setPassword }) => {
         <div>
             <h1>Register</h1>
             <div>
-                <label>Username</label>
+                <label>Email</label>
                 <input
                     value={username}
                     name='username'
