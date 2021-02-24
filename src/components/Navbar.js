@@ -7,12 +7,15 @@ import {
 import Home from './Home'
 import Profile from './Profile'
 import Splash from './Splash'
+import { render } from 'react-router-dom'
+
 
 // Function name matches file name
-const Navbar = () => {
+const Navbar = ( ) => {
     // return must have one parent element
     return (
         <nav>
+
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/profile'>Profile</Link></li>
             <li><Link to='/splash'>Login</Link></li>
