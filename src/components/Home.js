@@ -18,13 +18,12 @@ const Home = () => {
     }, [url]);
   
     return (
-        <div className = "Drinks">
+        <div className="Drinks">
             <h1>DRINKS</h1>
           {data?.drinks.map((drink, index)=>(
-            <div key={index} className ="drinkCard">
-            <p>{drink.strDrink}
-            <img src={drink.strDrinkThumb}/>
-          </p>
+            <div key={index} className ="drinkCard" height='300px' width='100%'>
+            <img src={drink.strDrinkThumb} height='25%' width='25%' />
+            <p>{drink.strDrink}</p>
             </div>
           )
           )}
