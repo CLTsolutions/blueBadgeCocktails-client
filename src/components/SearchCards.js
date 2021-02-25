@@ -20,6 +20,7 @@ const SearchCards = () => {
     }, []);
 
     return (
+
       <div className="search-drinks">
           <input placeholder='Search'></input>
         <h1>SEARCH RESULTS</h1>
@@ -32,5 +33,4 @@ const SearchCards = () => {
       </div>
     );
 }
-
 export default SearchCards
