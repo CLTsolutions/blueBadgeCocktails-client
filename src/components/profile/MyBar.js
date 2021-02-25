@@ -1,9 +1,10 @@
 import React from 'react'
+import './MyBar.css'
 
 const MyBar = () => {
     return (
-        <div>
-            
+        <div className='saved-drinks'>
+            <h1>My Bar Cart</h1>
         </div>
     )
 }
