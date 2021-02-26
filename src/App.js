@@ -11,6 +11,20 @@ import SearchCards from './components/SearchCards';
 
 // Defining our <App /> component the function name matches the file name
 function App() {
+const [sessionToken, setSessionToken] = useState('');
+
+useEffect(() => {
+  if (localStorage.getItem('token')){
+    setSessionToken(localStorage.getItem('token'));
+  }
+}, [])
+
+const updateToken = (newToken) => {
+  localStorage.setItem('token', newToken);
+  setSessionToken(newToken);
+  console.log(sessionToken);
+}
+
 
   return ( 
     <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
@@ -21,7 +35,7 @@ function App() {
       {/* <Switch> */}
           <Route exact path='/'><Home /></Route>
           <Route exact path='/mybar'><MyBar /></Route>
-          <Route exact path='/splash'><Splash /></Route>
+          <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
       {/* </Switch> */}
     </div>
   );
