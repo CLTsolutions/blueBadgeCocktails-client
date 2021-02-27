@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom';
 // adding css to jsx is that easy
 import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
-import Home from './components/Home';
+import Home from './components/HomePage/Home'
 import MyBar from './components/profile/MyBar';
 import Navbar from './components/Navbar'
 import Splash from './components/Splash';
@@ -19,7 +19,7 @@ function App() {
       {/* <SearchCards /> */}
       {/* <Home /> */}
       {/* <Switch> */}
-          <Route exact path='/'><Home /></Route>
+          <Route exact path='/Home'><Home /></Route>
           <Route exact path='/mybar'><MyBar /></Route>
           <Route exact path='/splash'><Splash /></Route>
       {/* </Switch> */}

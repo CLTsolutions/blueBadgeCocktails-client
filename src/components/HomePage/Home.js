@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import './Home.css'
-import TrendCard from "./TrendCard";
-import Card from './Card'
+import TrendCard from '../TrendCard' 
+
 
 const Home = () => {
   const [data, setData] = useState();
@@ -23,7 +23,7 @@ const Home = () => {
     <div className="Drinks">
       <h1>DRINKS</h1>
       {data?.drinks.map((drink, index) => (
-        <Card drink={drink} index={index}/>
+        <TrendCard drink={drink} index={index}/>
       ))}
     </div>
   );
