@@ -4,7 +4,7 @@ import {
     Link,
     Switch
 } from 'react-router-dom'
-import Home from './HomePage/Home'
+import Home from './Home'
 import MyBar from './profile/MyBar'
 import Splash from './Splash'
 import { render } from 'react-router-dom'

@@ -4,7 +4,7 @@ import Register from './Register';
 import Login from './Login';
 
 
-const Splash = () => {
+const Splash = ( props ) => {
     const [toggle, setToggle] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,13 +18,14 @@ const Splash = () => {
     };
 
     return (
-        <div className="card">
+        <div className="splash-container">
             {toggle ? (
                 <Login
                     setPassword={setPassword}
                     setUsername={setUsername}
                     username={username}
                     password={password}
+                    updateToken={props.updateToken}
                 />
             ) : (
                     <Register
@@ -32,10 +33,11 @@ const Splash = () => {
                         setUsername={setUsername}
                         username={username}
                         password={password}
+                        updateToken={props.updateToken}
                     />
                 )}
 
-            <button onClick={toggle ? handleSubmit : handleEvent}>Submit</button>
+            
 
             <p className={"link"} onClick={() => setToggle(!toggle)}>
                 {toggle

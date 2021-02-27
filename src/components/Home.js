@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import './Home.css'
-import TrendCard from '../TrendCard' 
+import TrendCard from './TrendCard' 
 
 
 const Home = () => {
@@ -21,13 +21,12 @@ const Home = () => {
 
   return (
     <div className="Drinks">
-      <h1>DRINKS</h1>
+      <h1 class="font-mono">Trending Drinks</h1>
       {data?.drinks.map((drink, index) => (
-        <TrendCard drink={drink} index={index}/>
+        <TrendCard drink={drink} key ={index} index={index}/>
       ))}
     </div>
   );
-
-};
+}
 
 export default Home;
