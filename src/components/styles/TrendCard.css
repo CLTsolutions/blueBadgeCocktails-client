@@ -10,3 +10,6 @@ img {
     margin-right: auto;
     width: 50%;
   }
+.drinkInstructions {
+    list-style: none;
+}
