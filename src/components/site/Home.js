@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <div className="Drinks">
-      <h1 class="font-mono">Trending Drinks</h1>
+      <h1 className="font-mono">Trending Drinks</h1>
       {data?.drinks.map((drink, index) => (
         <TrendCard drink={drink} key ={index} index={index}/>
       ))}
