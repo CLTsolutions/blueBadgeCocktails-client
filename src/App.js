@@ -7,7 +7,6 @@ import Home from './components/Home'
 import MyBar from './components/profile/MyBar';
 import Navbar from './components/Navbar'
 import Splash from './components/Splash';
-import SearchCards from './components/SearchCards';
 
 // Defining our <App /> component the function name matches the file name
 function App() {

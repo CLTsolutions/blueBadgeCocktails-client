@@ -1,13 +1,5 @@
 import './Navbar.css'
-import {
-    Route,
-    Link,
-    Switch
-} from 'react-router-dom'
-import Home from './Home'
-import MyBar from './profile/MyBar'
-import Splash from './Splash'
-import { render } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField'
 import SearchIcon from '@material-ui/icons/Search';
