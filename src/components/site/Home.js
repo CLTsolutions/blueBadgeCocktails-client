@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <div className="Drinks">
+
       <h1 className="font-display">Trending Drinks</h1>
       <div className='flex flex-row flex-wrap'>
       {data?.drinks.slice(0,10).map((drink, index) => (
