@@ -22,13 +22,15 @@ const Navbar = ( ) => {
         // <Box p={1}><Link to="/">Home</Link></Box>
         // <Box p={1}><Link to="/mybar">My Bar</Link></Box>
         // <Box p={1}><Link to="/splash">Login</Link></Box>
-        <nav className='bg-gray-600 h-14 flex justify-center items-center'>
+        <nav className='bg-gray-900  h-14 align-middle '>
+          <div className="text-right space-x-24 font-display text-gray-50">
             <Link to="/">Home</Link>
             <Link to="/mybar">My Bar</Link>
             <Link to="/splash">Login</Link>
-          {/* <Box ml={2}><SearchIcon /></Box> */}
-          {/* <Box mr={5}><TextField mr='1rem' /></Box> */}
+            </div>
+            <div className='text-left'>
             <input placeholder='Search' className='p-1 rounded-md'></input>
+            </div>
         </nav>
     );
 };
