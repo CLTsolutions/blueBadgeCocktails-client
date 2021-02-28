@@ -24,7 +24,7 @@ const TrendCard = ({drink, index}) => {
         <div key={index} className ="drinkCard">
         <Card style={{ height: 350, width: 300, }}>
               <h1>{drink.strDrink}</h1>
-          <img src={drink.strDrinkThumb} height='25%' width='25%' />
+          <img src={drink.strDrinkThumb} height='25%' width='25%' alt='' />
           <ul className ="font-thin text-pink-500 text-xs">
           <li>{drink.strCategory} </li>
          <li> {drink.strAlcoholic}</li>
