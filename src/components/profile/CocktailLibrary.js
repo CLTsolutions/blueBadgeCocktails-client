@@ -22,7 +22,7 @@ const CocktailLibrary = () => {
     }, [])
 
     return (
-        <div className='flex flex-row'>
+        <div className='flex flex-row justify-center'>
             {cocktails.map(cocktail => {
                 return (
                 <div className='border-2 border-indigo-600 mx-4 my-4' key={cocktail.id}>
