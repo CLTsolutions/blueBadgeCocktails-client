@@ -1,5 +1,5 @@
-import './MyBar.css'
-import SearchCards from '../SearchCards';
+import '../styles/MyBar.css'
+import SearchCards from '../cards/SearchCards';
 import CocktailLibrary from './CocktailLibrary';
 
 const MyBar = () => {

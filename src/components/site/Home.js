@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import './Home.css'
-import TrendCard from './TrendCard' 
+import '../styles/Home.css'
+import TrendCard from '../cards/TrendCard' 
 
 
 const Home = () => {
