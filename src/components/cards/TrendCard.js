@@ -18,7 +18,14 @@ const TrendCard = ({drink, index}) => {
             )
         }
     })
-
+    let mesArray = []
+    Object.entries(drink).map((entry) =>{
+      if(entry[0].includes("strMeasure")){
+        mesArray.push(
+          <li>{entry[1]}</li>
+        )
+      }
+    })
 
     return (    
         <div key={index} className ="drinkCard">
@@ -27,7 +34,7 @@ const TrendCard = ({drink, index}) => {
         flipOnHover={false} // default false
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
-        style={{ height: 200, width: 150 }}>
+        style={{ height: 300, width: 250 }}>
             <div className="drinkFront font-display">
                 <FrontSide
                 style={{
@@ -42,7 +49,10 @@ const TrendCard = ({drink, index}) => {
           <div className="drinkBack">
           <BackSide 
           className =" back-card font-thin text-pink-500 text-xs" style={{ backgroundColor: 'white'}}>
-        <h5>{liArray}</h5>  
+            <div className = 'flex flex-row flex-wrap flex-grow-0 content-between'>
+        <h5>{liArray}</h5>
+        <h5>{mesArray}</h5>  
+        </div>
         <br />
         <p>{drink.strInstructions}</p>
           
