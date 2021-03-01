@@ -32,6 +32,10 @@ const CocktailLibrary = () => {
 
     }
 
+    const createCocktail = () => {
+
+    }
+
     return (
         <div className='flex flex-row justify-center flex-wrap'>
             {cocktails.map(cocktail => {
@@ -42,8 +46,6 @@ const CocktailLibrary = () => {
                     <h3>{cocktail.instructions}</h3>
                     <button className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans">Update</button>
                     <button className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" onClick={e => deleteCocktail(e, cocktail.id)}>Delete</button>
-                    <br />
-                    <br />
                     <br />
                 </div>
                 )
