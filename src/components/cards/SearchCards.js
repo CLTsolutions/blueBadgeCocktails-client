@@ -28,6 +28,7 @@ const SearchCards = () => {
               <p>{drink.strDrink}</p>
             </div>
           ))}
+
         </div>
       </div>
     );
