@@ -9,31 +9,46 @@ const CocktailForm = () => {
   return (
     <div className='text-left bg-white bg-opacity-50 my-3 mx-3 p-4 rounded'>
         <div className='border-2 border-indigo-600 mx-4 my-4 p-4'>
-                <p className='font-bold text-2xl'>Create a New Cocktail</p>
-                <form className='flex flex-col'>
-                    <label className='my-2'>
-                        <input type='text' placeholder='Name' className='rounded-sm p-1' />
-                    </label>
-                    <h3>Alcoholic</h3>
-                    <label className='my-2'>
-                        <input type='text' placeholder='Glass Type' className='rounded-sm p-1' />
-                    </label>
-                    <label className='my-2'>
-                        <textarea placeholder='Ingredients' className='rounded-sm p-1' />
-                    </label>
-                    <label className='my-2'>
-                        <textarea placeholder='Measurements' className='rounded-sm p-1' />
-                    </label>
-                    <label className='my-2'>
-                        <textarea placeholder='Instructions' className='rounded-sm p-1' />
-                    </label>
-                    <h3>Iced</h3>
-                    <h3>Shaken</h3>
-                    <h3>Stirred</h3>
-                </form>
-                <button className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" onClick={e => createCocktail()}>Create New Cocktail</button>
-                <br />
-            </div>
+            <p className='font-bold text-2xl'>Create a New Cocktail</p>
+            <form className='flex flex-col'>
+                <label className='my-2'>
+                    <input type='text' placeholder='Name' className='rounded-sm p-1' />
+                </label>
+                <label>
+                    Alcoholic
+                    <input type='radio' value='yes' name='stirred' className='p-4' /> Yes
+                    <input type='radio' value='no' name='stirred' className='pl-4' /> No
+                </label>
+                <label className='my-2'>
+                    <input type='text' placeholder='Glass Type' className='rounded-sm p-1' />
+                </label>
+                <label className='my-2'>
+                    <textarea placeholder='Ingredients' className='rounded-sm p-1' />
+                </label>
+                <label className='my-2'>
+                    <textarea placeholder='Measurements' className='rounded-sm p-1' />
+                </label>
+                <label className='my-2'>
+                    <textarea placeholder='Instructions' className='rounded-sm p-1' />
+                </label>
+                <label>
+                    Iced
+                    <input type='radio' value='yes' name='iced' className='p-4' /> Yes
+                    <input type='radio' value='no' name='iced' className='pl-4' /> No
+                </label>
+                <label>
+                    shaken<input type='radio' value='yes' name='shaken' className='p-4' /> Yes
+                    <input type='radio' value='no' name='Shaken' className='pl-4' /> No
+                </label>
+                <label>
+                    Stirred
+                    <input type='radio' value='yes' name='stirred' className='p-4' /> Yes
+                    <input type='radio' value='no' name='stirred' className='pl-4' /> No
+                </label>
+            </form>
+            <button className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" onClick={e => createCocktail()}>Create New Cocktail</button>
+            <br />
+        </div>
         {/* <Form>
             <FormGroup>
                 <Label for="name"></Label>

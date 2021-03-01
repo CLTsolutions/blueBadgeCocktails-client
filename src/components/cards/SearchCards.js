@@ -24,7 +24,7 @@ const SearchCards = () => {
         <div className='flex flex-row flex-wrap'>
           {data?.drinks.map((drink, index) => (
             <div key={index} className="drinkCard" height="300px" width="100%">
-              <img src={drink.strDrinkThumb} alt='' height="25%" width="25%" />
+              <img src={drink.strDrinkThumb} alt='' className='rounded-md' />
               <p>{drink.strDrink}</p>
             </div>
           ))}
