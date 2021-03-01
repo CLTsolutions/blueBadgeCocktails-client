@@ -4,12 +4,12 @@
     cursor: pointer;
     padding: 10px;
 }
-img {
+.drinkPic {
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
   }
-.drinkInstructions {
+.drinkBack {
     list-style: none;
 }

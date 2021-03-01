@@ -22,8 +22,8 @@ const Home = () => {
   return (
     <div className="Drinks">
 
-      <h1 className="font-display">Trending Drinks</h1>
-      <div className='flex flex-row flex-wrap'>
+      <h1 className="font-display text-white text-xl">Trending Drinks</h1>
+      <div className='grid grid-rows-4 grid-flow-col gap-0'>
       {data?.drinks.slice(0,10).map((drink, index) => (
         <TrendCard drink={drink} key ={index} index={index}/>
       ))}

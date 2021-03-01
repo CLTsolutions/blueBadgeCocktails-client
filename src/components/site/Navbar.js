@@ -9,28 +9,21 @@ import { Link } from 'react-router-dom'
 const Navbar = ( ) => {
     // return must have one parent element
     return (
-      // <Box
-      //   display="flex"
-      //   flexDirection="row"
-      //   justifyContent="end"
-      //   alignItems='center'
-      //   bgcolor="grey.600"
-      //   height="2rem"
-      //   width="100%"
-      //   p={3}
-      // >
-        // <Box p={1}><Link to="/">Home</Link></Box>
-        // <Box p={1}><Link to="/mybar">My Bar</Link></Box>
-        // <Box p={1}><Link to="/splash">Login</Link></Box>
-        <nav className='bg-gray-900  h-14 align-middle '>
-          <div className="text-right space-x-24 font-display text-gray-50">
-            <Link to="/">Home</Link>
-            <Link to="/mybar">My Bar</Link>
-            <Link to="/splash">Login</Link>
+
+        <nav className='bg-gray-900 '>
+          <div className="max-w-full mx-auto px-2 sm:px-6 lg:px-8">
+            <div className='relative flex items-center justify-between h-16'>
+              <div className='absolute inset-y-0 left-0 flex items-center sm:hidden text-gray-50'>
+            <Link to="/" className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'> Home</Link>
+            <Link to="/mybar" className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>My Bar</Link>
+            <Link to="/splash" className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>Login</Link>
             </div>
             <div className='text-left'>
             <input placeholder='Search' className='p-1 rounded-md'></input>
             </div>
+            </div>
+            </div>
+            
         </nav>
     );
 };
