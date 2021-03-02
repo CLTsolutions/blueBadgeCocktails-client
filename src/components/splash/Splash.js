@@ -9,14 +9,6 @@ const Splash = ( props ) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // const handleSubmit = () => {
-    //     console.log(username, password);
-    // };
-
-    // const handleEvent = () => {
-    //     console.log('HandleEvent');
-    // };
-
     return (
         <div className="splash-container">
             {toggle ? (
