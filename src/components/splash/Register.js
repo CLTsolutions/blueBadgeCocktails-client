@@ -3,6 +3,7 @@ import { useState } from 'react';
 const Register = ({ props }) => {
     const [bartender, setBartender] = useState('');
     const [password, setPassword] = useState('');
+    const [noUsername, setNoUsername] = useState(false);
 
     let handleSubmit = (event) => {
         event.preventDefault();
