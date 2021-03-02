@@ -21,7 +21,7 @@ const CocktailForm = ({createCocktail}) => {
 
   return (
     <div className='text-left max-w-sm bg-white bg-opacity-50 w-auto my-3 mx-3 px-5 py-4 rounded'>
-        <p className='font-bold text-2xl'>Create a New Cocktail</p>
+        <p className='font-bold text-gray-700 text-2xl'>Create a New Cocktail</p>
         <form className='flex flex-col'>
             <label className='my-2'>
                 <input type='text' placeholder='Name' className='rounded-sm p-1' onChange={e => setName(e.target.value)} />
