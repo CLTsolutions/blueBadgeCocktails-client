@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Register = ({ props }) => {
+const Register = (props) => {
     const [bartender, setBartender] = useState('');
     const [password, setPassword] = useState('');
     const [noUsername, setNoUsername] = useState(false);
@@ -11,27 +11,17 @@ const Register = ({ props }) => {
             method: 'POST',
             body: JSON.stringify({ 
             user:{ 
-            email: bartender,
-            password: password }}),
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
+                email: bartender,
+                password: password }}),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
         }).then(
             (response) => response.json()
-        ).then(json => {
-            console.log(json)
+        ).then((data) => {
+            props.updateToken(data.sessionToken)
         })
-        
-        // .then((data) => {
-        //     props.updateToken(data.sessionToken)
-        // })
         console.log(bartender, password);
-        // <div>
-        //     <h1>Sign Up</h1>
-        //     <form onSubmit={handleSubmit}>
-
-        //     </form>
-        // </div>
     }
 
     return (

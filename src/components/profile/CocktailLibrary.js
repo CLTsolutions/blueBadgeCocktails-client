@@ -49,7 +49,7 @@ const CocktailLibrary = () => {
     return (
         <div>
             <div className='flex flex-row justify-center flex-wrap'>
-                {cocktails.map(cocktail => {
+                {/* {cocktails.map(cocktail => {
                     return (
                         <div className='m-4 p-4 max-w-sm rounded overflow-hidden shadow-lg bg-gray-50' key={cocktail.id}>
                             <h1 className='mt-4'>{cocktail.name}</h1>
@@ -62,7 +62,7 @@ const CocktailLibrary = () => {
                             <br />
                         </div>
                     )
-                })}
+                })} */}
             </div>
             <CocktailForm createCocktail={createCocktail} />
         </div>
