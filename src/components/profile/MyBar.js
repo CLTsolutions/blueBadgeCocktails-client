@@ -1,5 +1,5 @@
 import '../styles/MyBar.css'
-import SearchCards from '../cards/SearchCards';
+import Search from '../site/Search';
 import CocktailLibrary from './CocktailLibrary';
 // import CocktailForm from '../cards/CocktailForm';
 
@@ -9,7 +9,8 @@ const MyBar = () => {
             <h1>My Bar Cart</h1>
             <CocktailLibrary />
             <br/>
-            <SearchCards />
+            <h1 className='mt-5'>SEARCH RESULTS</h1>
+            <Search />
         </div>
     )
 }
