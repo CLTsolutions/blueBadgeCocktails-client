@@ -23,7 +23,7 @@ const updateToken = (newToken) => {
   setSessionToken(newToken);
   console.log(sessionToken);
 }
-
+//render method is down here?
 
   return ( 
     <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
