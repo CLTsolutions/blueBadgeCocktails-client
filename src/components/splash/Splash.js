@@ -9,14 +9,6 @@ const Splash = ( props ) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = () => {
-        console.log(username, password);
-    };
-
-    const handleEvent = () => {
-        console.log('HandleEvent');
-    };
-
     return (
         <div className="splash-container">
             {toggle ? (
@@ -28,14 +20,14 @@ const Splash = ( props ) => {
                     updateToken={props.updateToken}
                 />
             ) : (
-                    <Register
-                        setPassword={setPassword}
-                        setUsername={setUsername}
-                        username={username}
-                        password={password}
-                        updateToken={props.updateToken}
-                    />
-                )}
+                <Register
+                    setPassword={setPassword}
+                    setUsername={setUsername}
+                    username={username}
+                    password={password}
+                    updateToken={props.updateToken}
+                />
+            )}
 
             
 
