@@ -5,7 +5,7 @@ const CocktailLibrary = () => {
     const [cocktails, setCocktails] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/mybar/1`)
+        fetch(`http://localhost:3000/mybar/`)
             .then(res => res.json())
             .then(json => {
                 console.log(json)
@@ -46,10 +46,13 @@ const CocktailLibrary = () => {
         .then(res => console.log(res))
     }
 
+    // CIRCE WORKS HERE
+
+
     return (
         <div>
             <div className='flex flex-row justify-center flex-wrap'>
-                {/* {cocktails.map(cocktail => {
+                {cocktails.map(cocktail => {
                     return (
                         <div className='m-4 p-4 max-w-sm rounded overflow-hidden shadow-lg bg-gray-50' key={cocktail.id}>
                             <h1 className='mt-4'>{cocktail.name}</h1>
@@ -62,7 +65,7 @@ const CocktailLibrary = () => {
                             <br />
                         </div>
                     )
-                })} */}
+                })}
             </div>
             <CocktailForm createCocktail={createCocktail} />
         </div>

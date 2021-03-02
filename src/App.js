@@ -10,7 +10,7 @@ import Splash from './components/splash/Splash';
 
 // Defining our <App /> component the function name matches the file name
 function App() {
-const [sessionToken, setSessionToken] = useState('');
+const [sessionToken, setSessionToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjE0NzI4NDY0LCJleHAiOjE2MTQ4MTQ4NjR9.UJCPlqSM_22rm2tp-nzbrpHuuHL5wphXuOgVU0qdsqk');
 
 useEffect(() => {
   if (localStorage.getItem('token')){

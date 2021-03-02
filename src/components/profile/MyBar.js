@@ -1,6 +1,6 @@
-import '../styles/MyBar.css'
 import Search from '../site/Search';
 import CocktailLibrary from './CocktailLibrary';
+import SearchForm from "../cards/SearchForm";
 // import CocktailForm from '../cards/CocktailForm';
 
 const MyBar = () => {
