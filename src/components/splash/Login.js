@@ -29,6 +29,9 @@ const Login = (props) => {
             <div>
                 <label>Email</label>
                 <input
+                    required
+                    type='email'
+                    size='30'
                     value={bartender}
                     name='bartender'
                     onChange={(event) => setBartender(event.target.value)}
@@ -37,7 +40,9 @@ const Login = (props) => {
             <div>
                 <label>Password</label>
                 <input
-                    // type='password'
+                    required
+                    type='password'
+                    minlength='8'
                     value={password}
                     name='password'
                     onChange={(event) => setPassword(event.target.value)}

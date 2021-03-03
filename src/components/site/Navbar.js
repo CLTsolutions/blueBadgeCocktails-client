@@ -1,12 +1,15 @@
 // import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
+import {
+  Button
+} from 'reactstrap'
 // import Box from '@material-ui/core/Box';
 // import TextField from '@material-ui/core/TextField'
 // import SearchIcon from '@material-ui/icons/Search';
 
 
 // Function name matches file name
-const Navbar = ( ) => {
+const Navbar = ( props ) => {
     // return must have one parent element
     return (
 
@@ -19,6 +22,7 @@ const Navbar = ( ) => {
                 <Link to="/mybar" className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium'>My Bar</Link>
                 <Link to="/splash" className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium'>Login</Link>
               {/* </div> */}
+              <Button onClick={props.clickLogout}className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium'>Logout</Button>
                 <input placeholder='Search' className='p-1 rounded-md text-left'></input>
              {/* </div> */}
             {/* </div> */}

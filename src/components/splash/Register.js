@@ -30,6 +30,9 @@ const Register = (props) => {
             <div>
                 <label>Email</label>
                 <input
+                    required
+                    type='email'
+                    size='30'
                     value={bartender}
                     name='bartender'
                     onChange={(event) => setBartender(event.target.value)}
@@ -38,6 +41,9 @@ const Register = (props) => {
             <div>
                 <label>Password</label>
                 <input
+                    required
+                    type='password'
+                    minlength='8'
                     value={password}
                     name='password'
                     onChange={(event) => setPassword(event.target.value)}
