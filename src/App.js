@@ -1,6 +1,9 @@
 // import {Route} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { Route } from 'react-router-dom';
+import { 
+  Route, 
+  Switch
+} from 'react-router-dom';
 // adding css to jsx is that easy
 import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
 import Home from './components/site/Home'
@@ -31,16 +34,16 @@ const clearToken = () => {
 }
 
 const protectedViews = () => {
-  return sessionToken === localStorage.getItem('token') ? <Home token={sessionToken} /> : <Splash updateToken={updateToken} />
+  return sessionToken === localStorage.getItem('token') ? <MyBar token={sessionToken} /> : <Splash updateToken={updateToken} />
 }
 
   return ( 
     <div className="App">
       <Navbar clickLogout={clearToken} />
-      {protectedViews()}
-          <Route exact path='/'><Home /></Route>
-          <Route exact path='/mybar'><MyBar token={sessionToken} /></Route>
-          <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
+          <Switch>
+            <Route exact path='/'><Home /></Route>
+            {protectedViews()}
+          </Switch>
     </div>
   );
 }
