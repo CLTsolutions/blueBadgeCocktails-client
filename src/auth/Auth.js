@@ -1,22 +1,43 @@
-// import { Container, Row, Col } from 'reactstrap';
-// import Register from '../components/Register';
-// import Login from '../components/Login';
+import { useState } from 'react';
 
-// const Auth = (props) => {
-//     return (
-//         <Container className='auth-container'>
-//             <Row>
-//                 <Col md='6'>
-//                     Register
-//                     <Register />
-//                 </Col>
-//                 <Col md='6'>
-//                     Login
-//                     <Login />
-//                 </Col>
-//             </Row>
-//         </Container>
-//     )
-// }
+import Register from './Register';
+import Login from './Login';
 
-// export default Auth;
+
+const Auth = ({ updateToken } ) => {
+    const [toggle, setToggle] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    return (
+        <div className="splash-container">
+            {toggle ? (
+                <Login
+                    setPassword={setPassword}
+                    setUsername={setUsername}
+                    username={username}
+                    password={password}
+                    updateToken={updateToken}
+                />
+            ) : (
+                <Register
+                    setPassword={setPassword}
+                    setUsername={setUsername}
+                    username={username}
+                    password={password}
+                    updateToken={updateToken}
+                />
+            )}
+
+            
+
+            <p className={"link"} onClick={() => setToggle(!toggle)}>
+                {toggle
+                    ? "Don't have a Bar?"
+                    : "Already have a Bar?"}
+            </p>
+        </div>
+    );
+};
+
+export default Auth;

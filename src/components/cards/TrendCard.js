@@ -9,7 +9,7 @@ const TrendCard = ({ drink, index }) => {
   // Api ing counting
   let ingArr = [];
   let measuresArr = [];
-  Object.entries(drink).map((entry) => {
+  Object.entries(drink).map((entry, index) => {
     if (entry[0].includes("strIngredient")) {
       ingArr.push(entry[1]);
       return;
@@ -19,6 +19,7 @@ const TrendCard = ({ drink, index }) => {
       return;
     }
   });
+
   let ingList = []
   for (let i = 0; i < ingArr.length; i++){
     if(ingArr[i]){
