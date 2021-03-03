@@ -6,10 +6,10 @@ import {
 } from 'react-router-dom';
 // adding css to jsx is that easy
 import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
+import Auth from '../src/auth/Auth';
 import Home from './components/site/Home'
 import MyBar from './components/profile/MyBar';
 import Navbar from './components/site/Navbar'
-import Splash from './components/splash/Splash';
 
 // Defining our <App /> component the function name matches the file name
 function App() {
@@ -34,7 +34,7 @@ const clearToken = () => {
 }
 
 const protectedViews = () => {
-  return sessionToken === localStorage.getItem('token') ? <MyBar token={sessionToken} /> : <Splash updateToken={updateToken} />
+  return sessionToken === localStorage.getItem('token') ? <MyBar token={sessionToken} /> : <Auth updateToken={updateToken} />
 }
 
   return ( 
