@@ -91,7 +91,7 @@ const TrendCard = ({ drink, index }) => {
         <div className="drinkBack">
           <BackSide
             className=" back-card font-thin text-pink-500 text-xs"
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: "red" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-0 content-between">
               <table class="table-auto">
