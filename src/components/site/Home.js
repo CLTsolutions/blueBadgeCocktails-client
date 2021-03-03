@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate';
 
 const Home = () => {
   const [data, setData] = useState();
-  const url = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php";
+  const url = `https://www.thecocktaildb.com/api/json/v2/${process.env.REACT_APP_COCKTAILS_API_KEY}/popular.php`;
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)

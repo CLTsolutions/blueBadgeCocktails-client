@@ -35,16 +35,12 @@ const protectedViews = () => {
 }
 
   return ( 
-    <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
-      {/* Navbar is our imported component*/}
+    <div className="App">
       <Navbar clickLogout={clearToken} />
       {protectedViews()}
-      {/* <SearchCards /> */}
-      {/* <Home /> */}
-      {/* <Switch> */}
           <Route exact path='/'><Home /></Route>
-          <Route exact path='/mybar'><MyBar /></Route>
-      {/* </Switch> */}
+          <Route exact path='/mybar'><MyBar token={sessionToken} /></Route>
+          <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
     </div>
   );
 }
