@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import CocktailForm from '../cards/CocktailForm';
 
-const CocktailLibrary = (props) => {
-    console.log(props.token);
+const CocktailLibrary = ({ token }) => {
+    console.log(token);
     const [cocktails, setCocktails] = useState([])
 
     useEffect(() => {
@@ -10,7 +10,7 @@ const CocktailLibrary = (props) => {
           method: "GET",
           headers: new Headers({
             "Content-Type": "application/json",
-            "Authorization": props.token,
+            "Authorization": token,
           }),
         })
           .then((res) => res.json())
@@ -25,7 +25,7 @@ const CocktailLibrary = (props) => {
             method: "DELETE",
             headers: new Headers ({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': token
             })
         }).then(() => {
             let newArr = cocktails.filter(cocktail => cocktail.id !== id)
@@ -33,29 +33,32 @@ const CocktailLibrary = (props) => {
         })
     }
 
-    const createCocktail = (name, glassType, ingredients, measurements, instructions) => {
-        console.log('You created a new cocktail!');
-        console.log({name, glassType, ingredients, measurements, instructions});
-        fetch(`http://localhost:3000/mybar/`, {
-            method: "POST",
-            headers: new Headers ({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            }),
-            body: JSON.stringify ({
-                name: name,
-                alcoholic: true,
-                glassType: glassType,
-                ingredients: ingredients,
-                measurements: measurements,
-                instructions: instructions,
-                iced: false,
-                shaken: false,
-                stirred: false
+        const createCocktail = (name, glassType, ingredients, measurements, instructions) => {
+            console.log('You created a new cocktail!');
+            console.log({name, glassType, ingredients, measurements, instructions});
+            fetch(`http://localhost:3000/mybar/`, {
+                method: "POST",
+                headers: new Headers ({
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }),
+                body: JSON.stringify ({
+                    name: name,
+                    alcoholic: false,
+                    glassType: glassType,
+                    ingredients: ingredients,
+                    measurements: measurements,
+                    instructions: instructions,
+                    iced: false,
+                    shaken: false,
+                    stirred: false
+                }),
             })
-        })
-        .then(res => console.log(res))
-    }
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+            })
+        }
 
     // CIRCE WORKS HERE
 
