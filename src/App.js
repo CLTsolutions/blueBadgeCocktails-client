@@ -33,7 +33,7 @@ const updateToken = (newToken) => {
       {/* <Home /> */}
       {/* <Switch> */}
           <Route exact path='/'><Home /></Route>
-          <Route exact path='/mybar'><MyBar /></Route>
+          <Route exact path='/mybar'><MyBar token={sessionToken} /></Route>
           <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
       {/* </Switch> */}
     </div>
