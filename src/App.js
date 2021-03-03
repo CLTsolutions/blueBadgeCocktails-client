@@ -10,7 +10,7 @@ import Splash from './components/splash/Splash';
 
 // Defining our <App /> component the function name matches the file name
 function App() {
-const [sessionToken, setSessionToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjE0NzI4NDY0LCJleHAiOjE2MTQ4MTQ4NjR9.UJCPlqSM_22rm2tp-nzbrpHuuHL5wphXuOgVU0qdsqk');
+const [sessionToken, setSessionToken] = useState('');
 
 useEffect(() => {
   if (localStorage.getItem('token')){
@@ -33,7 +33,7 @@ const updateToken = (newToken) => {
       {/* <Home /> */}
       {/* <Switch> */}
           <Route exact path='/'><Home /></Route>
-          <Route exact path='/mybar'><MyBar /></Route>
+          <Route exact path='/mybar'><MyBar token={sessionToken} /></Route>
           <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
       {/* </Switch> */}
     </div>
