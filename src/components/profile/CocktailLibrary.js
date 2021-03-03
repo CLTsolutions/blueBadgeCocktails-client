@@ -27,7 +27,6 @@ const CocktailLibrary = (props) => {
             let newArr = cocktails.filter(cocktail => cocktail.id !== id)
             setCocktails(newArr)
         })
-
     }
 
     const createCocktail = (name, glassType, ingredients, measurements, instructions) => {
