@@ -25,16 +25,25 @@ const updateToken = (newToken) => {
 }
 //render method is down here?
 
+const clearToken = () => {
+  localStorage.clear();
+  setSessionToken('');
+}
+
+const protectedViews = () => {
+  return sessionToken === localStorage.getItem('token') ? <Home token={sessionToken} /> : <Splash updateToken={updateToken} />
+}
+
   return ( 
     <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
       {/* Navbar is our imported component*/}
-      <Navbar />
+      <Navbar clickLogout={clearToken} />
+      {protectedViews()}
       {/* <SearchCards /> */}
       {/* <Home /> */}
       {/* <Switch> */}
           <Route exact path='/'><Home /></Route>
           <Route exact path='/mybar'><MyBar /></Route>
-          <Route exact path='/splash'><Splash updateToken={updateToken}/></Route>
       {/* </Switch> */}
     </div>
   );
