@@ -43,7 +43,7 @@ const Register = (props) => {
                 <input
                     required
                     type='password'
-                    minlength='8'
+                    minLength='8'
                     value={password}
                     name='password'
                     onChange={(event) => setPassword(event.target.value)}

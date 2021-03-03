@@ -23,6 +23,10 @@ const CocktailLibrary = (props) => {
     const deleteCocktail = (id) => {
         fetch(`http://localhost:3000/mybar/${id}`, {
             method: "DELETE",
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
         }).then(() => {
             let newArr = cocktails.filter(cocktail => cocktail.id !== id)
             setCocktails(newArr)
@@ -34,9 +38,10 @@ const CocktailLibrary = (props) => {
         console.log({name, glassType, ingredients, measurements, instructions});
         fetch(`http://localhost:3000/mybar/`, {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            }),
             body: JSON.stringify ({
                 name: name,
                 alcoholic: true,
