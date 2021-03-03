@@ -33,8 +33,8 @@ const Splash = ( props ) => {
 
             <p className={"link"} onClick={() => setToggle(!toggle)}>
                 {toggle
-                    ? "Don't have a barCart?"
-                    : "Already have a barCart?"}
+                    ? "Don't have a Bar?"
+                    : "Already have a Bar?"}
             </p>
         </div>
     );
