@@ -10,32 +10,33 @@ const Auth = ({ updateToken } ) => {
     const [password, setPassword] = useState('');
 
     return (
-        <div className="splash-container">
-            {toggle ? (
-                <Login
-                    setPassword={setPassword}
-                    setUsername={setUsername}
-                    username={username}
-                    password={password}
-                    updateToken={updateToken}
-                />
-            ) : (
-                <Register
-                    setPassword={setPassword}
-                    setUsername={setUsername}
-                    username={username}
-                    password={password}
-                    updateToken={updateToken}
-                />
-            )}
-
-            
-
-            <p className={"link"} onClick={() => setToggle(!toggle)}>
-                {toggle
-                    ? "Don't have a Bar?"
-                    : "Already have a Bar?"}
-            </p>
+        <div className="flex h-screen items-center justify-center">
+            <div className='bg-white opacity-75 max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
+                {toggle ? (
+                    <Login
+                        setPassword={setPassword}
+                        setUsername={setUsername}
+                        username={username}
+                        password={password}
+                        updateToken={updateToken}
+                    />
+                ) : (
+                    <Register
+                        setPassword={setPassword}
+                        setUsername={setUsername}
+                        username={username}
+                        password={password}
+                        updateToken={updateToken}
+                    />
+                )}
+                <div className='mt-8 text-center'>
+                    <p className={"link"} onClick={() => setToggle(!toggle)}>
+                        {toggle
+                            ? "Don't have a Bar Cart?"
+                            : "Already have a Bar?"}
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };

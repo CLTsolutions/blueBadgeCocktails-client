@@ -1,27 +1,24 @@
 import { useState, useEffect } from 'react';
 import CocktailForm from '../cards/CocktailForm';
-import UpdateCocktailForm from '../cards/UpdateCocktailForm'
 
 const CocktailLibrary = ({ token }) => {
     console.log(token);
     const [cocktails, setCocktails] = useState([])
 
     useEffect(() => {
-        
-      }, []);
-
-      fetch("http://localhost:3000/mybar/", {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          "Authorization": token,
-        }),
-      })
+        fetch("http://localhost:3000/mybar/", {
+          method: "GET",
+          headers: new Headers({
+            "Content-Type": "application/json",
+            "Authorization": token,
+          }),
+        })
         .then((res) => res.json())
         .then((json) => {
-          console.log(json);
-          setCocktails(json.cocktails);
+        console.log(json);
+        setCocktails(json.cocktails);
         });
+    }, []);
 
     const deleteCocktail = (id) => {
         fetch(`http://localhost:3000/mybar/${id}`, {
@@ -87,7 +84,6 @@ const CocktailLibrary = ({ token }) => {
                 }
             </div>
             <CocktailForm createCocktail={createCocktail} />
-            <UpdateCocktailForm update />
         </div>
     )
 }
