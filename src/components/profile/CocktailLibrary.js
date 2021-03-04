@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CocktailForm from '../cards/CocktailForm';
+import UpdateCocktailForm from '../cards/UpdateCocktailForm'
 
 const CocktailLibrary = ({ token }) => {
     console.log(token);
@@ -87,6 +88,7 @@ const CocktailLibrary = ({ token }) => {
                 }
             </div>
             <CocktailForm createCocktail={createCocktail} />
+            <UpdateCocktailForm update />
         </div>
     )
 }

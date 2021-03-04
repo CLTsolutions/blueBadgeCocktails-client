@@ -34,34 +34,6 @@ const TrendCard = ({ drink, index }) => {
   }
   console.log(ingArr, measuresArr)
 
-  // return (
-  //   <table class="table-auto">
-  //     <thead>
-  //       <tr>
-  //         <th>Item</th>
-  //         <th>Quanity</th>
-  //       </tr>
-  //     </thead>
-  //     <tbody>
-  //       {ingList}
-
-  //     </tbody>
-  //   </table>
-  // );
-
-  // let liArray = [];
-  // Object.entries(drink).map((entry) => {
-  //   if (entry[0].includes("strIngredient")) {
-  //     liArray.push(<li>{entry[1]}</li>);
-  //   }
-  // });
-  // let mesArray = [];
-  // Object.entries(drink).map((entry) => {
-  //   if (entry[0].includes("strMeasure")) {
-  //     mesArray.push(<li>{entry[1]}</li>);
-  //   }
-  // });
-
   return (
     <div key={index} className="drinkCard">
       <Flippy
@@ -92,7 +64,7 @@ const TrendCard = ({ drink, index }) => {
         <div className="drinkBack">
           <BackSide
             className=" back-card font-thin text-pink-500 text-xs"
-            style={{ backgroundColor: "red" }}
+            style={{ backgroundColor: "white" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-0 content-between">
               <table class="table-auto">
