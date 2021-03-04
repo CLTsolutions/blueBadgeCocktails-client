@@ -10,6 +10,7 @@ import Auth from '../src/auth/Auth';
 import Home from './components/site/Home'
 import MyBar from './components/profile/MyBar';
 import Navbar from './components/site/Navbar'
+// import Footer from './components/site/Footer'
 
 // Defining our <App /> component the function name matches the file name
 function App() {
@@ -44,6 +45,7 @@ const protectedViews = () => {
             <Route exact path='/'><Home /></Route>
             {protectedViews()}
           </Switch>
+        {/* <Footer /> */}
     </div>
   );
 }

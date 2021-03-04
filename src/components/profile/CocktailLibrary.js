@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import CocktailForm from '../cards/CocktailForm';
-import UpdateCocktailForm from '../cards/UpdateCocktailForm'
 
 const CocktailLibrary = ({ token }) => {
     console.log(token);
@@ -14,12 +13,12 @@ const CocktailLibrary = ({ token }) => {
             "Authorization": token,
           }),
         })
-          .then((res) => res.json())
-          .then((json) => {
-            console.log(json);
-            setCocktails(json.cocktails);
-          });
-      }, []);
+        .then((res) => res.json())
+        .then((json) => {
+        console.log(json);
+        setCocktails(json.cocktails);
+        });
+    }, []);
 
     const deleteCocktail = (id) => {
         fetch(`http://localhost:3000/mybar/${id}`, {
@@ -31,38 +30,35 @@ const CocktailLibrary = ({ token }) => {
         }).then(() => {
             let newArr = cocktails.filter(cocktail => cocktail.id !== id)
             setCocktails(newArr)
-        })
+        }) 
     }
 
-        const createCocktail = (name, glassType, ingredients, measurements, instructions) => {
-            console.log('You created a new cocktail!');
-            console.log({name, glassType, ingredients, measurements, instructions});
-            fetch(`http://localhost:3000/mybar/`, {
-                method: "POST",
-                headers: new Headers ({
-                    'Content-Type': 'application/json',
-                    'Authorization': token
-                }),
-                body: JSON.stringify ({
-                    name: name,
-                    alcoholic: false,
-                    glassType: glassType,
-                    ingredients: ingredients,
-                    measurements: measurements,
-                    instructions: instructions,
-                    iced: false,
-                    shaken: false,
-                    stirred: false
-                }),
-            })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-            })
-        }
-
-    // CIRCE WORKS HERE
-
+    const createCocktail = (name, glassType, ingredients, measurements, instructions) => {
+        console.log('You created a new cocktail!');
+        console.log({name, glassType, ingredients, measurements, instructions});
+        fetch(`http://localhost:3000/mybar/`, {
+            method: "POST",
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }),
+            body: JSON.stringify ({
+                name: name,
+                alcoholic: false,
+                glassType: glassType,
+                ingredients: ingredients,
+                measurements: measurements,
+                instructions: instructions,
+                iced: false,
+                shaken: false,
+                stirred: false
+            }),
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+        })
+    }
 
     return (
         <div>
@@ -88,7 +84,6 @@ const CocktailLibrary = ({ token }) => {
                 }
             </div>
             <CocktailForm createCocktail={createCocktail} />
-            <UpdateCocktailForm update />
         </div>
     )
 }
