@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="Drinks">
 
-      <h1 className="font-display text-white text-xl">Trending Drinks</h1>
+      <h1 className="font-display text-white text-xl text-center">Trending Drinks</h1>
       <div className='grid grid-rows-4 grid-flow-col gap-0'>
       {data?.drinks.slice(offset, offset + perPage).map((drink, index) => (
         

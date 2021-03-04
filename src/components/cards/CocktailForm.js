@@ -3,6 +3,7 @@ import React from 'react';
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const CocktailForm = ({ createCocktail }) => {
+    //making setState and useState variable to pass data through form
     const [name, setName] = useState('')
     const [isAlcoholic, setIsAlcoholic] = useState(false)
     const [glassType, setGlassType] = useState('')
@@ -12,18 +13,19 @@ const CocktailForm = ({ createCocktail }) => {
     const [isIced, setIsIced] = useState(false)
     const [isShaken, setIsShaken] = useState(false)
     const [isStirred, setIsStirred] = useState(false)
-    // const [isChecked, setIsChecked] = useState(false)
-    // const [isCheckedTwo, setIsCheckedTwo] = useState(false)
 
   return (
-    <div className='text-left max-w-sm bg-white bg-opacity-50 w-auto my-3 mx-3 px-5 py-4 rounded'>
-        <p className='font-bold text-gray-700 text-2xl'>Create a New Cocktail</p>
-        <form className='flex flex-col'>
-            <label className='my-2'>
-                <input 
+    <div className='bg-white bg-opacity-50 max-w-2xl mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
+        <p className='text-center font-bold text-gray-700 text-2xl mb-5'>Create a New Cocktail</p>
+        <form 
+            className='flex flex-col space-y-3'
+            onSubmit={(e) => createCocktail(e, name, glassType, ingredients, measurements, instructions)}
+        >
+            <label>
+                <input
                     type='text' 
-                    placeholder='Name' 
-                    className='rounded-sm p-1' 
+                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
+                    placeholder='Name'
                     onChange={e => setName(e.target.value)}
                 />
             </label>
@@ -31,38 +33,38 @@ const CocktailForm = ({ createCocktail }) => {
                 Alcoholic
                 <input 
                     type='checkbox' 
+                    className='p-4 ml-3 mr-1'
                     checked={isAlcoholic} 
                     name='alcoholic' 
-                    className='ml-3 mr-1' 
                     onChange={e => setIsAlcoholic(e.target.checked)} 
                 /> Yes
             </label>
-            <label className='my-2'>
+            <label>
                 <input 
                     type='text' 
+                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500' 
                     placeholder='Glass Type' 
-                    className='rounded-sm p-1' 
                     onChange={e => setGlassType(e.target.value)} 
                 />
             </label>
-            <label className='my-2'>
+            <label>
                 <textarea 
+                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
                     placeholder='Ingredients' 
-                    className='rounded-sm p-1' 
                     onChange={e => setIngredients(e.target.value)} 
                 />
             </label>
-            <label className='my-2'>
+            <label>
                 <textarea 
+                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
                     placeholder='Measurements' 
-                    className='rounded-sm p-1' 
                     onChange={e => setMeasurements(e.target.value)} 
                 />
             </label>
-            <label className='my-2'>
+            <label>
                 <textarea 
+                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500' 
                     placeholder='Instructions' 
-                    className='rounded-sm p-1' 
                     onChange={e => setInstructions(e.target.value)} 
                 />
             </label>
@@ -70,9 +72,9 @@ const CocktailForm = ({ createCocktail }) => {
                 Iced
                 <input 
                     type='checkbox' 
+                    className='p-4 ml-3 mr-1' 
                     checked={isIced} 
                     name='iced' 
-                    className='p-4 ml-3 mr-1' 
                     onChange={e => setIsIced(e.target.checked)} 
                 /> Yes
             </label>
@@ -80,9 +82,9 @@ const CocktailForm = ({ createCocktail }) => {
                 Shaken
                 <input 
                     type='checkbox' 
+                    className='p-4 ml-3 mr-1' 
                     checked={isShaken} 
                     name='shaken' 
-                    className='p-4 ml-3 mr-1' 
                     onChange={e => setIsShaken(e.target.checked)} 
                 /> Yes
             </label>
@@ -90,16 +92,18 @@ const CocktailForm = ({ createCocktail }) => {
                 Stirred
                 <input 
                     type='checkbox' 
+                    className='p-4 ml-3 mr-1' 
                     checked={isStirred} 
                     name='stirred' 
-                    className='p-4 ml-3 mr-1' 
                     onChange={e => setIsStirred(e.target.checked)} 
                 /> Yes
             </label>
-        </form>
         <button
-            className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" 
-            onClick={() => createCocktail(name, glassType, ingredients, measurements, instructions)}>Create New Cocktail</button>
+            type='submit'
+            className="focus:outline-none focus:ring-1 focus:border-purple-500 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans">
+            Submit
+        </button>
+        </form>
         <br />
         {/* <Form>
             <FormGroup>
