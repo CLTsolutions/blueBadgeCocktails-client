@@ -2,7 +2,7 @@ import { useState } from 'react'
 import React from 'react';
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const CocktailForm = ({ createCocktail }) => {
+const CreateCocktailForm = ({ createCocktail }) => {
     //making setState and useState variable to pass data through form
     const [name, setName] = useState('')
     const [isAlcoholic, setIsAlcoholic] = useState(false)
@@ -24,7 +24,7 @@ const CocktailForm = ({ createCocktail }) => {
             <label>
                 <input
                     type='text' 
-                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
+                    className='w-full border-2 border-white p-2 rounded outline-none focus:border-purple-500'
                     placeholder='Name'
                     onChange={e => setName(e.target.value)}
                 />
@@ -42,28 +42,28 @@ const CocktailForm = ({ createCocktail }) => {
             <label>
                 <input 
                     type='text' 
-                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500' 
+                    className='w-full border-2 border-white p-2 rounded outline-none focus:border-purple-500' 
                     placeholder='Glass Type' 
                     onChange={e => setGlassType(e.target.value)} 
                 />
             </label>
             <label>
                 <textarea 
-                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
+                    className='w-full border-2 border-white p-2 rounded outline-none focus:border-purple-500'
                     placeholder='Ingredients' 
                     onChange={e => setIngredients(e.target.value)} 
                 />
             </label>
             <label>
                 <textarea 
-                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500'
+                    className='w-full border-2 border-white p-2 rounded outline-none focus:border-purple-500'
                     placeholder='Measurements' 
                     onChange={e => setMeasurements(e.target.value)} 
                 />
             </label>
             <label>
                 <textarea 
-                    className='w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-purple-500' 
+                    className='w-full border-2 border-white p-2 rounded outline-none focus:border-purple-500' 
                     placeholder='Instructions' 
                     onChange={e => setInstructions(e.target.value)} 
                 />
@@ -161,4 +161,4 @@ const CocktailForm = ({ createCocktail }) => {
   );
 }
 
-export default CocktailForm
+export default CreateCocktailForm
