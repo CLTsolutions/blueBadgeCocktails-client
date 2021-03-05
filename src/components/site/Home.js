@@ -12,7 +12,6 @@ const Home = () => {
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
-  const [favCocktail, setFavCocktail]
 
   const initData = async () => {
     const response = await fetch(url);
@@ -28,7 +27,8 @@ const Home = () => {
   };
   
   useEffect(() => {
-    initData();}, 
+    initData();
+  }, 
    [offset]);
 
 
