@@ -20,8 +20,12 @@ const Navbar = ({ clickLogout, sessionToken }) => {
             {/* <div className='relative flex items-center justify-between h-16'> */}
             {/* <div className='relative flex justify-between h-16 text-right'> */}
               {/* <div className='absolute inset-y-0 left-0 flex items-center text-gray-50'> */}
-                <Link to="/" className='text-blue-600 hover:bg-purple-700 hover:text-white px-3 py-2 rounded-md font-medium'>Home</Link>
-                <Link to="/mybar" className='text-gray-300 hover:bg-purple-700 hover:text-white px-3 py-2 rounded-md font-medium'>My Bar</Link>
+                <li className='text-blue-600 hover:bg-purple-700 hover:text-white px-3 py-2 rounded-md font-medium'>
+                  <Link to="/" >Home</Link>
+                </li>
+                <li className='text-gray-300 hover:bg-purple-700 hover:text-white px-3 py-2 rounded-md font-medium'>
+                  <Link to="/mybar">My Bar</Link>
+                </li>
                 <>
                 { !loggedIn ?
                 <Link to="/splash" className='text-gray-300 hover:bg-purple-700 hover:text-white px-3 py-2 rounded-md font-medium'>Login</Link>
