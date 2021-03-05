@@ -1,12 +1,22 @@
 import { useState } from 'react';
+import validate from './validateInfo'
 
 const Register = (props) => {
     const [bartender, setBartender] = useState('');
     const [password, setPassword] = useState('');
-    const [noUsername, setNoUsername] = useState(false);
 
-    let handleSubmit = (event) => {
-        event.preventDefault();
+
+    let handleSubmit = (e) => {
+        e.preventDefault();
+        let isValid = validate({
+            email: bartender,
+            password: password
+        })
+        if (!isValid) {
+            alert("Invalid input for form")
+            return
+        }
+
         fetch('http://localhost:3000/bartender/register', {
             method: 'POST',
             body: JSON.stringify({ 
@@ -23,7 +33,7 @@ const Register = (props) => {
         })
         console.log(bartender, password);
     }
-
+    
     return (
         <div>
             <p className="text-gray-600 text-center pt-2 mb-8 font-bold text-2xl">Sign up for a bar cart.</p>
@@ -31,12 +41,13 @@ const Register = (props) => {
                 <div>
                     <input
                         className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
-                        required
+                        // pattern='(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))'
+                        id='email'
                         type='email'
                         placeholder='Email'
                         size='30'
                         value={bartender}
-                        name='bartender'
+                        name='email'
                         onChange={(event) => setBartender(event.target.value)}
                     />
                 </div>
@@ -44,9 +55,9 @@ const Register = (props) => {
                     <input
                         className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                         required
+                        id='password'
                         type='password'
                         placeholder='Password'
-                        minLength='8'
                         value={password}
                         name='password'
                         onChange={(event) => setPassword(event.target.value)}
@@ -54,7 +65,7 @@ const Register = (props) => {
                 </div>
                 <button 
                     className="flex-shrink-0 bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-sm border-4 text-white py-1 px-2 rounded"
-                    onClick={handleSubmit}>Submit</button>
+                    onClick={(e) => handleSubmit(e)}>Submit</button>
             </form>
         </div>
     );
