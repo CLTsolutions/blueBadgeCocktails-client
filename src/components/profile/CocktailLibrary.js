@@ -8,8 +8,8 @@ const CocktailLibrary = ({ token }) => {
     //infinity is a number that's never true by default
     const [cocktailsToUpdate, setCocktailsToUpdate] = useState(Infinity)
 
-    useEffect(() => { //in useEffect from Justin's vid
-      fetchDrinks()
+    useEffect(() => {
+      fetchDrinks() //fetching drinks again after updating
     }, []);
 
     const fetchDrinks = () => {

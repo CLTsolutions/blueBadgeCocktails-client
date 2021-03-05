@@ -40,7 +40,7 @@ const Register = (props) => {
             <form className='space-y-5'>
                 <div>
                     <input
-                        className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
+                        className='w-full border-2 border-white p-3 rounded outline-none focus:border-purple-500'
                         // pattern='(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))'
                         id='email'
                         type='email'
@@ -53,7 +53,7 @@ const Register = (props) => {
                 </div>
                 <div>
                     <input
-                        className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
+                        className='w-full border-2 border-white p-3 rounded outline-none focus:border-purple-500'
                         required
                         id='password'
                         type='password'
