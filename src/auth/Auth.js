@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Register from './Register';
 import Login from './Login';
+import Register from './Register';
 
 
 const Auth = ({ updateToken } ) => {
@@ -11,7 +11,7 @@ const Auth = ({ updateToken } ) => {
 
     return (
         <div className="flex h-screen items-center justify-center">
-            <div className='bg-white opacity-75 max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
+            <div className='bg-white bg-opacity-75 max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
                 {toggle ? (
                     <Login
                         setPassword={setPassword}
