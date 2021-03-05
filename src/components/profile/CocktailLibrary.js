@@ -9,22 +9,26 @@ const CocktailLibrary = ({ token }) => {
     const [cocktailsToUpdate, setCocktailsToUpdate] = useState(Infinity)
 
     useEffect(() => { //in useEffect from Justin's vid
-        fetch("http://localhost:3000/mybar/", {
-            method: "GET",
-            headers: new Headers({
-                "Content-Type": "application/json",
-                "Authorization": token,
-            }),
-        })
-        .then((res) => res.json())
-        .then((json) => {
-        //getting cocktails, mapping, and adding properties to them (storing boolean values on them)
-        //this is so when update is clicked, it's set to true and form will show.
-            json.cocktails.map(cocktail => cocktail.isUpdating = false)
-            setCocktails(json.cocktails); //setting array to be the result
-            console.log(json.cocktails);
-        });
+      fetchDrinks()
     }, []);
+
+    const fetchDrinks = () => {
+        fetch("http://localhost:3000/mybar/", {
+                    method: "GET",
+                    headers: new Headers({
+                        "Content-Type": "application/json",
+                        "Authorization": token,
+                    }),
+                })
+                .then((res) => res.json())
+                .then((json) => {
+                //getting cocktails, mapping, and adding properties to them (storing boolean values on them)
+                //this is so when update is clicked, it's set to true and form will show.
+                    json.cocktails.map(cocktail => cocktail.isUpdating = false)
+                    setCocktails(json.cocktails); //setting array to be the result
+                    console.log(json.cocktails);
+                });
+    }
 
     const deleteCocktail = (id) => { //passing cocktail id NOT user's id
         fetch(`http://localhost:3000/mybar/${id}`, {
@@ -72,7 +76,6 @@ const CocktailLibrary = ({ token }) => {
     }
 
     const updateCocktail = (e, id, name, glassType, ingredients, measurements, instructions) => {
-        e.preventDefault()
         console.log('You created a new cocktail!');
         console.log({name, glassType, ingredients, measurements, instructions});
         fetch(`http://localhost:3000/mybar/${id}`, {
@@ -122,7 +125,7 @@ const CocktailLibrary = ({ token }) => {
                                     onClick={() => setCocktailsToUpdate(cocktail.id)}
                                 >Update</button>
                                 {/* below toggles to update form when update button is clicked */}
-                                { cocktailsToUpdate === cocktail.id && <UpdateCocktailForm updateCocktail={updateCocktail} cocktail={cocktail} /> }
+                                { cocktailsToUpdate === cocktail.id && <UpdateCocktailForm updateCocktail={updateCocktail} cocktail={cocktail} id={cocktail.id} fetchDrinks={fetchDrinks}/> }
                                 <button 
                                     className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" 
                                     onClick={() => deleteCocktail(cocktail.id)}>Delete
