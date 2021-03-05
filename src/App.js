@@ -34,7 +34,7 @@ const protectedViews = () => {
 
   return ( 
     <div className="App">
-      <Navbar clickLogout={clearToken} />
+      <Navbar clickLogout={clearToken} token={sessionToken} />
           <Switch>
             <Route exact path='/'><Home /></Route>
             {protectedViews()}

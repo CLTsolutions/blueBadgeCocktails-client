@@ -24,7 +24,7 @@ const CocktailLibrary = ({ token }) => {
                 .then((json) => {
                 //getting cocktails, mapping, and adding properties to them (storing boolean values on them)
                 //this is so when update is clicked, it's set to true and form will show.
-                    json.cocktails.map(cocktail => cocktail.isUpdating = false)
+                    // json.cocktails.map(cocktail => cocktail.isUpdating = false)
                     setCocktails(json.cocktails); //setting array to be the result
                     console.log(json.cocktails);
                 });
