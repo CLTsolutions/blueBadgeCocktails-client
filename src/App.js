@@ -32,7 +32,7 @@ const protectedViews = () => {
   return sessionToken === localStorage.getItem('token') ? <MyBar token={sessionToken} /> : <Auth updateToken={updateToken} />
 }
 
-  return ( 
+  return ( //wrap Navbar and protected views in Router?
     <div className="App">
       <Navbar clickLogout={clearToken} />
           <Switch>
