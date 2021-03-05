@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const UpdateCocktailForm = ({ updateCocktail, id }) => {
+const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks }) => {
     const [updateName, setUpdateName] = useState("");
     const [updateIsAlcoholic, setUpdateIsAlcoholic] = useState(true);
     const [updateGlassType, setUpdateGlassType] = useState("");
@@ -11,13 +11,18 @@ const UpdateCocktailForm = ({ updateCocktail, id }) => {
     const [updateIsIced, setUpdateIsIced] = useState(true);
     const [updateIsShaken, setUpdateIsShaken] = useState(true);
     const [updateIsStirred, setUpdateIsStirred] = useState(true);
+    console.log(id)
     
     return (
         <div className='bg-white bg-opacity-50 max-w-2xl mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
             <p className='text-center font-bold text-gray-700 text-2xl mb-5'>Create a New Cocktail</p>
             <form 
                 className='flex flex-col space-y-3'
-                onSubmit={(e) => updateCocktail(e, id, updateName, updateGlassType, updateIngredients, updateMeasurements, updateInstructions)}
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    updateCocktail(e, id, updateName, updateGlassType, updateIngredients, updateMeasurements, updateInstructions)
+                    fetchDrinks()
+                }}
             >
                 <label>
                     <input
