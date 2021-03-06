@@ -7,10 +7,8 @@ const MyBar = ({ token }) => {
     console.log(token);
     return (
         <div className='saved-drinks'>
-            <h1>My Bar Cart</h1>
-             <CocktailLibrary token={token} />
+            <CocktailLibrary token={token} />
             <br/>
-            <h1 className='mt-5'>SEARCH RESULTS</h1>
             <Search />
         </div>
     )

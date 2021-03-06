@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-// import './App.css';
 import Auth from "../src/auth/Auth";
 import Home from "./components/site/Home";
 import MyBar from "./components/profile/MyBar";
@@ -21,7 +20,6 @@ function App() {
     setSessionToken(newToken);
     console.log(sessionToken);
   };
-  //render method is down here?
 
   const clearToken = () => {
     localStorage.clear();
@@ -36,18 +34,16 @@ function App() {
     )}/>
   )
 
-
   return (
-    //wrap Navbar and protected views in Router?
     <div className="App">
-      <Route>
-        <Navbar clickLogout={clearToken} token={sessionToken} />
-      </Route>
-      <Route exact path="/" component={Home} />
-      <Route path="/auth" component={() => <Auth updateToken={updateToken}/>} />
-      <PrivateRoute path="/mybar" Component={() => <MyBar token={sessionToken}/>}/>
-      {sessionToken && <Redirect to='/mybar'/>}
-      </div>
+      <Navbar clickLogout={clearToken} token={sessionToken} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/mybar" component={() => <MyBar token={sessionToken} />} />
+      <Route exact path="/auth" component={() => <Auth updateToken={updateToken}/>} />
+  
+      {sessionToken ? <Redirect to='/home' />: <Redirect to='/auth'/>} 
+      
+    </div>
   );
 }
 
