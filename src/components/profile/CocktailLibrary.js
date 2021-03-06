@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import CreateCocktailForm from '../cards/CreateCocktailForm';
 import UpdateCocktailForm from '../cards/UpdateCocktailForm'
+import APIURL from '../../helpers/environment'
 
 const CocktailLibrary = ({ token }) => {
-    console.log(token);
+    // console.log(token);
     const [cocktails, setCocktails] = useState([])
     //infinity is a number that's never true by default
     const [cocktailsToUpdate, setCocktailsToUpdate] = useState(Infinity)
@@ -13,7 +14,7 @@ const CocktailLibrary = ({ token }) => {
     }, []);
 
     const fetchDrinks = () => {
-        fetch("http://localhost:3000/mybar/", {
+        fetch(`${APIURL}/mybar/`, {
                     method: "GET",
                     headers: new Headers({
                         "Content-Type": "application/json",
@@ -26,12 +27,12 @@ const CocktailLibrary = ({ token }) => {
                 //this is so when update is clicked, it's set to true and form will show.
                     // json.cocktails.map(cocktail => cocktail.isUpdating = false)
                     setCocktails(json.cocktails); //setting array to be the result
-                    console.log(json.cocktails);
+                    // console.log(json.cocktails);
                 });
     }
 
     const deleteCocktail = (id) => { //passing cocktail id NOT user's id
-        fetch(`http://localhost:3000/mybar/${id}`, {
+        fetch(`${APIURL}/mybar/${id}`, {
             method: "DELETE",
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -46,9 +47,8 @@ const CocktailLibrary = ({ token }) => {
 
     const createCocktail = (e, name, glassType, ingredients, measurements, instructions) => {
         e.preventDefault()
-        console.log('You created a new cocktail!');
-        console.log({name, glassType, ingredients, measurements, instructions});
-        fetch(`http://localhost:3000/mybar/`, {
+        // console.log({name, glassType, ingredients, measurements, instructions});
+        fetch(`${APIURL}/mybar/`, {
             method: "POST",
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -71,14 +71,13 @@ const CocktailLibrary = ({ token }) => {
             //what is 'isUpdating'? See above comments in our GET.
             fetchDrinks()
             
-            console.log(json)
+            // console.log(json)
         })
     }
 
     const updateCocktail = (e, id, name, glassType, ingredients, measurements, instructions) => {
-        console.log('You created a new cocktail!');
-        console.log({name, glassType, ingredients, measurements, instructions});
-        fetch(`http://localhost:3000/mybar/${id}`, {
+        // console.log({name, glassType, ingredients, measurements, instructions});
+        fetch(`${APIURL}/mybar/${id}`, {
             method: "PUT",
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -101,7 +100,7 @@ const CocktailLibrary = ({ token }) => {
             //what is 'isUpdating'? See above comments in our GET.
             fetchDrinks()
             setCocktailsToUpdate(Infinity)
-            console.log(json)
+            // console.log(json)
         })
     }
 
@@ -144,7 +143,6 @@ const CocktailLibrary = ({ token }) => {
                     : null
                 }
             </div>
-            {/* Below is making form display */}
             <CreateCocktailForm createCocktail={createCocktail} />
         </div>
     )

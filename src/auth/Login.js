@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import APIURL from '../helpers/environment'
 
 const Login = (props) => {
     const [bartender, setBartender] = useState('');
@@ -6,7 +7,7 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/bartender/login', {
+        fetch(`${APIURL}/bartender/login`, {
             method: 'POST',
             body: JSON.stringify({ 
             user:{ 

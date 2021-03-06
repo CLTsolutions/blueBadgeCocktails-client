@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import validate from './validateInfo'
+import APIURL from '../helpers/environment'
 
 const Register = (props) => {
     const [bartender, setBartender] = useState('');
@@ -17,7 +18,7 @@ const Register = (props) => {
             return
         }
 
-        fetch('http://localhost:3000/bartender/register', {
+        fetch(`${APIURL}/bartender/register`, {
             method: 'POST',
             body: JSON.stringify({ 
             user:{ 

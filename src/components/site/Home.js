@@ -11,7 +11,7 @@ const Home = () => {
   const initData = async () => {
     const response = await fetch(url);
     const drinks = await response.json();
-    console.log(drinks);
+    // console.log(drinks);
     setData(drinks);
   };
 

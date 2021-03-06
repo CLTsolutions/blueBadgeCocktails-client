@@ -10,7 +10,7 @@ const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks }) => {
     const [updateIsIced, setUpdateIsIced] = useState(true);
     const [updateIsShaken, setUpdateIsShaken] = useState(true);
     const [updateIsStirred, setUpdateIsStirred] = useState(true);
-    console.log(id)
+    // console.log(id)
     
     return (
         <>

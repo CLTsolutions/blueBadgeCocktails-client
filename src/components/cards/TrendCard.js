@@ -5,7 +5,7 @@ import Flippy, { FrontSide, BackSide } from "react-flippy";
 import { useState } from "react";
 
 const TrendCard = ({ drink, index }) => {
-  console.log(drink);
+  // console.log(drink);
   // Api ing counting
   let ingArr = [];
   let measuresArr = [];
@@ -33,7 +33,7 @@ const TrendCard = ({ drink, index }) => {
     }
  
   }
-  console.log(ingArr, measuresArr)
+  // console.log(ingArr, measuresArr)
 
   return (
     <div key={index} className="drinkCard">

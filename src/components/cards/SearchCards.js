@@ -1,5 +1,4 @@
 const SearchCards = ({ drink, index }) => {
-  // const ingredientArr = drink.strIngredient.split('')
 
     let liArray = []
     Object.entries(drink).map((entry, index)=>{
