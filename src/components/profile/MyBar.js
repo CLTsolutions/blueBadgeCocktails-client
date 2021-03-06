@@ -1,11 +1,15 @@
-import './MyBar.css'
-import SearchCards from '../SearchCards';
+import Search from '../site/Search';
+import CocktailLibrary from './CocktailLibrary';
+import SearchForm from "../cards/SearchForm";
+// import CocktailForm from '../cards/CocktailForm';
 
-const MyBar = () => {
+const MyBar = ({ token }) => {
+    console.log(token);
     return (
         <div className='saved-drinks'>
-            <h1>My Bar Cart</h1>
-            <SearchCards />
+            <CocktailLibrary token={token} />
+            <br/>
+            <Search />
         </div>
     )
 }
