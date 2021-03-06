@@ -25,15 +25,7 @@ function App() {
     localStorage.clear();
     setSessionToken("");
   };
-
-  const PrivateRoute = ({Component, ...rest}) => (
-        <Route {...rest} render={(props) => (
-      sessionToken != ""
-      ? <Component {...props}/>
-      : <Redirect to='/auth' />
-    )}/>
-  )
-
+  
   return (
     <div className="App">
       <Navbar clickLogout={clearToken} token={sessionToken} />

@@ -12,21 +12,20 @@ const TrendCard = ({ drink, index }) => {
   Object.entries(drink).map((entry, index) => {
     if (entry[0].includes("strIngredient")) {
       ingArr.push(entry[1]);
-      return;
+      return true;
     }
     if (entry[0].includes("strMeasure")) {
-      measuresArr.push(entry[1]);
-      return;
+      measuresArr.push(entry[1]); 
     }
+    return true
   });
 
   let ingList = []
   for (let i = 0; i < ingArr.length; i++){
     if(ingArr[i]){
          ingList.push(
-      <tr>
+      <tr key={i}>
         <td>{ingArr[i]}</td>
-        <br/>
         <td>{measuresArr[i] || "to taste"}</td>
       </tr>
     )
@@ -79,11 +78,10 @@ const TrendCard = ({ drink, index }) => {
             style={{ backgroundColor: "white" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-0 content-between">
-              <table class="table-auto">
+              <table className="table-auto">
       <thead>
       <tr>
         <th className="text-s">Ingredient</th>
-        <br/>
         <th className="text-s">Quanity</th>
       </tr>
     </thead>
@@ -93,7 +91,6 @@ const TrendCard = ({ drink, index }) => {
     </tbody>
   </table>
             </div>
-            <br />
             <p className="text-s">{drink.strInstructions}</p>
           </BackSide>
         </div>

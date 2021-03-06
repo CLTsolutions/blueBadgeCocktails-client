@@ -7,6 +7,7 @@ const SearchCards = ({ drink, index }) => {
           <li key={index}>{entry[1]}</li>
         )
       }
+      return true
     })
 
     let mesArray = []
@@ -16,6 +17,7 @@ const SearchCards = ({ drink, index }) => {
           <li key={index}>{entry[1]}</li>
         )
       }
+      return true
     })
 
     return (

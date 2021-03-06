@@ -55,7 +55,6 @@ const Login = (props) => {
                 <button 
                     className="max-w-auto bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-md border-4 text-white py-1 px-3 rounded" 
                     onClick={handleSubmit}
-                    login={Login}
                     >
                 Submit
                 </button>
