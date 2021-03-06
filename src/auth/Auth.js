@@ -5,7 +5,7 @@ import Register from './Register';
 
 
 const Auth = ({ updateToken } ) => {
-    const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(true);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

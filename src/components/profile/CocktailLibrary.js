@@ -69,8 +69,8 @@ const CocktailLibrary = ({ token }) => {
         .then(res => res.json()) //parsing data
         .then(json => {
             //what is 'isUpdating'? See above comments in our GET.
-            json.isUpdating = false
-            setCocktails([...cocktails, json])
+            fetchDrinks()
+            
             console.log(json)
         })
     }
@@ -99,15 +99,15 @@ const CocktailLibrary = ({ token }) => {
         .then(res => res.json()) //parsing data
         .then(json => {
             //what is 'isUpdating'? See above comments in our GET.
-            json.isUpdating = false
-            setCocktails([...cocktails, json])
+            fetchDrinks()
+            setCocktailsToUpdate(Infinity)
             console.log(json)
         })
     }
 
     return (
         <div>
-            <div className='flex flex-row justify-center flex-wrap'>
+            <div className='flex  flex-start justify-center'>
                 {cocktails?.length > 0 ? 
                     <>
                     {cocktails.map(cocktail => { //map is returning drink card for user's drinks
@@ -122,14 +122,20 @@ const CocktailLibrary = ({ token }) => {
                                 </div>
                                 <button 
                                     className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans"
-                                    onClick={() => setCocktailsToUpdate(cocktail.id)}
+                                    onClick={() => {
+                                        cocktailsToUpdate == Infinity
+                                        ? setCocktailsToUpdate(cocktail.id)
+                                        : setCocktailsToUpdate(Infinity)}}
                                 >Update</button>
                                 {/* below toggles to update form when update button is clicked */}
-                                { cocktailsToUpdate === cocktail.id && <UpdateCocktailForm updateCocktail={updateCocktail} cocktail={cocktail} id={cocktail.id} fetchDrinks={fetchDrinks}/> }
-                                <button 
+                                { cocktailsToUpdate === cocktail.id
+                                ? <UpdateCocktailForm updateCocktail={updateCocktail} cocktail={cocktail} id={cocktail.id} fetchDrinks={fetchDrinks}/>
+                                :<button 
                                     className="focus:outline-none focus:ring-1 focus:ring-gray-900 bg-red-500 hover:bg-red-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-red-200 font-sans" 
                                     onClick={() => deleteCocktail(cocktail.id)}>Delete
                                 </button>
+                                }
+                                
                                 <br />
                             </div>
                         )
