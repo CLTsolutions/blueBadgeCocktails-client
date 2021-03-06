@@ -59,6 +59,17 @@ const TrendCard = ({ drink, index }) => {
             />
             <h5 className="text-xs">Served in: </h5>
             <h5 className="text-xs">{drink.strGlass}</h5>
+            <br/>
+            <Button onClick={() =>alert('SAVE')}
+          startIcon={<Favorite />}
+          variant="outlined"
+          color="primary"
+          size="small"
+          style={{
+              fontSize: 8
+          }}>
+              Save Drink
+            </Button>
           </FrontSide>
         </div>
         <div className="drinkBack">
@@ -84,16 +95,6 @@ const TrendCard = ({ drink, index }) => {
             <p>{drink.strInstructions}</p>
           </BackSide>
         </div>
-        {/* <Button onClick={() =>alert('SAVE')}
-          startIcon={<Favorite />}
-          variant="outlined"
-          color="primary"
-          size="small"
-          style={{
-              fontSize: 6
-          }}>
-              Save Drink
-            </Button> */}
       </Flippy>
     </div>
   );
