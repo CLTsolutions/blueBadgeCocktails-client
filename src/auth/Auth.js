@@ -33,7 +33,7 @@ const Auth = ({ updateToken } ) => {
                     <p className={"link"} onClick={() => setToggle(!toggle)}>
                         {toggle
                             ? "Don't have a Bar Cart?"
-                            : "Already have a Bar?"}
+                            : "Already have a Bar Cart?"}
                     </p>
                 </div>
             </div>
