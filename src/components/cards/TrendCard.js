@@ -26,6 +26,7 @@ const TrendCard = ({ drink, index }) => {
          ingList.push(
       <tr>
         <td>{ingArr[i]}</td>
+        <br/>
         <td>{measuresArr[i] || "to taste"}</td>
       </tr>
     )
@@ -41,7 +42,7 @@ const TrendCard = ({ drink, index }) => {
         flipOnHover={false} // default false
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
-        style={{ height: 300, width: 250 }}
+        style={{ height: 330, width: 250 }}
       >
         <div className="drinkFront font-display">
           <FrontSide
@@ -49,16 +50,16 @@ const TrendCard = ({ drink, index }) => {
               backgroundColor: "white",
             }}
           >
-            <h1 className="name">{drink.strDrink}</h1>
+            <h1 className="name text-center font-semibold">{drink.strDrink}</h1>
             <img
-              className="drinkPic"
+              className="drinkPic text-center"
               src={drink.strDrinkThumb}
-              height="25%"
-              width="25%"
+              height="30%"
+              width="30%"
               alt=""
             />
-            <h5 className="text-xs">Served in: </h5>
-            <h5 className="text-xs">{drink.strGlass}</h5>
+            <h5 className="text-xs text-center">Served in: </h5>
+            <h5 className="text-xs text-center">{drink.strGlass}</h5>
             <br/>
             <Button onClick={() =>alert('SAVE')}
           startIcon={<Favorite />}
@@ -74,25 +75,26 @@ const TrendCard = ({ drink, index }) => {
         </div>
         <div className="drinkBack">
           <BackSide
-            className=" back-card font-thin text-pink-500 text-xs"
+            className=" back-card font-thin text-pink-500 text-s"
             style={{ backgroundColor: "white" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-0 content-between">
               <table class="table-auto">
       <thead>
       <tr>
-        <th>Item</th>
-        <th>Quanity</th>
+        <th className="text-s">Ingredient</th>
+        <br/>
+        <th className="text-s">Quanity</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className="text-xs">
       {ingList}
 
     </tbody>
   </table>
             </div>
             <br />
-            <p>{drink.strInstructions}</p>
+            <p className="text-s">{drink.strInstructions}</p>
           </BackSide>
         </div>
       </Flippy>
