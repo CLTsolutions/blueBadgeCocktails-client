@@ -32,7 +32,6 @@ const Register = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken)
         })
-        console.log(bartender, password);
     }
     
     return (
