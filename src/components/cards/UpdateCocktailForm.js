@@ -13,7 +13,7 @@ const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks }) => {
     console.log(id)
     
     return (
-        <div className='bg-white bg-opacity-50 max-w-2xl mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
+        <>
             <p className='text-center font-bold text-gray-700 text-2xl mb-5'>Create a New Cocktail</p>
             <form 
                 className='flex flex-col space-y-3'
@@ -107,7 +107,7 @@ const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks }) => {
             </button>
             </form>
             <br />
-        </div>
+                </>
     )
 }
 
