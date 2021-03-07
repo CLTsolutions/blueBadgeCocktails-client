@@ -4,7 +4,7 @@ import SearchForm from "../cards/SearchForm";
 // import CocktailForm from '../cards/CocktailForm';
 
 const MyBar = ({ token }) => {
-    console.log(token);
+    // console.log(token);
     return (
         <div className='saved-drinks'>
             <CocktailLibrary token={token} />

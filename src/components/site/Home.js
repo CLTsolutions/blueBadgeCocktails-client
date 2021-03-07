@@ -11,12 +11,17 @@ const Home = () => {
   const initData = async () => {
     const response = await fetch(url);
     const drinks = await response.json();
-    console.log(drinks);
-    setData(drinks);
+    // console.log(drinks);
+    return drinks
   };
 
   useEffect(() => {
-    initData();
+    let isMounted = true;
+    initData()
+      .then(data => {
+        if (isMounted) setData(data)
+      })
+    return () => {isMounted = false}
   }, []);
 
   return (

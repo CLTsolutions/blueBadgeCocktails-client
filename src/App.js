@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import Auth from "../src/auth/Auth";
 import Home from "./components/site/Home";
 import MyBar from "./components/profile/MyBar";
@@ -18,22 +18,14 @@ function App() {
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     setSessionToken(newToken);
-    console.log(sessionToken);
+    // console.log(sessionToken);
   };
 
   const clearToken = () => {
     localStorage.clear();
     setSessionToken("");
   };
-
-  const PrivateRoute = ({Component, ...rest}) => (
-        <Route {...rest} render={(props) => (
-      sessionToken != ""
-      ? <Component {...props}/>
-      : <Redirect to='/auth' />
-    )}/>
-  )
-
+  
   return (
     <div className="App">
       <Navbar clickLogout={clearToken} token={sessionToken} />

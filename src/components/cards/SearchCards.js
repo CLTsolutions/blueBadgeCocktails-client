@@ -1,5 +1,4 @@
 const SearchCards = ({ drink, index }) => {
-  // const ingredientArr = drink.strIngredient.split('')
 
     let liArray = []
     Object.entries(drink).map((entry, index)=>{
@@ -8,6 +7,7 @@ const SearchCards = ({ drink, index }) => {
           <li key={index}>{entry[1]}</li>
         )
       }
+      return true
     })
 
     let mesArray = []
@@ -17,6 +17,7 @@ const SearchCards = ({ drink, index }) => {
           <li key={index}>{entry[1]}</li>
         )
       }
+      return true
     })
 
     return (
