@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import CreateCocktailForm from '../cards/CreateCocktailForm';
-import CocktailLibraryCard from '../cards/CocktailLibraryCard';
 // import UpdateCocktailForm from '../cards/UpdateCocktailForm'
 import APIURL from '../../helpers/environment'
+import CocktailLibraryCard from '../cards/CocktailLibraryCard';
 
 const CocktailLibrary = ({ token }) => {
     // console.log(token);
@@ -107,16 +107,7 @@ const CocktailLibrary = ({ token }) => {
     return (
         <div>
             <div className='flex  flex-start justify-center'>
-                {cocktails?.length > 0 ? 
-                    <>
-                    {cocktails.map(cocktail => { //map is returning drink card for user's drinks
-                        return (
-                            <CocktailLibraryCard createCocktail={createCocktail} />
-                        )
-                    })}
-                    </>
-                    : null
-                }
+                <CocktailLibraryCard cocktails={cocktails} setCocktailsToUpdate={setCocktailsToUpdate} fetchDrinks={fetchDrinks} deleteCocktail={deleteCocktail} updateCocktail={updateCocktail} cocktailsToUpdate={cocktailsToUpdate}/>
             </div>
             <CreateCocktailForm createCocktail={createCocktail} />
         </div>

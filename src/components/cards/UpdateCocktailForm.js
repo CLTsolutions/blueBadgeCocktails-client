@@ -107,7 +107,7 @@ const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks }) => {
             </button>
             </form>
             <br />
-        <UpdateModal updateCocktailForm={updateCocktailForm} />
+        {/* <UpdateModal updateCocktailForm={updateCocktailForm} /> */}
         </>
     )
 }

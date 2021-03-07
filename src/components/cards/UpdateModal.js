@@ -2,11 +2,37 @@ import { useState } from 'react';
 import { Modal, Button } from 'antd';
 
 const UpdateModal = () => {
-    return (
-        <div>
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
-        </div>
-    )
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+    
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    return (
+      <>
+        <Button type="primary" onClick={showModal}>
+          Update
+        </Button>
+        <Modal
+          title="Update your cocktail."
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Does this work?</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </>
+    );
 }
 
 export default UpdateModal;
