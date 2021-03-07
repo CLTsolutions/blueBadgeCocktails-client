@@ -1,3 +1,5 @@
+// SEARCH STRETCH GOALS IN PROGRESS
+
 import { useState, useEffect } from 'react'
 import SearchCards from '../cards/SearchCards'
 import SearchForm from '../cards/SearchForm'
@@ -11,7 +13,7 @@ const Search = () => {
     const initData = async () => {
         const response = await fetch(url);
         const searchResults = await response.json();
-        console.log(searchResults);
+        // console.log(searchResults);
         setData(searchResults);
         
     };

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Logo from '../Pics/transparentlogo.png'
 
 const Navbar = ({ clickLogout, token }) => {
 
@@ -13,6 +14,7 @@ const Navbar = ({ clickLogout, token }) => {
 
         <nav className='bg-white bg-opacity-50 max-width'>
             <ul className="list-none flex items-center justify-end mr-6 space-x-3 h-16">
+            <img className='items-left h-16 w-15' src={Logo} alt= 'logo' />
                 <li className='text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium'>
                     <Link to="/">Home</Link>
                 </li>

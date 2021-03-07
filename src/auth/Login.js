@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import APIURL from '../helpers/environment'
 
 const Login = (props) => {
     const [bartender, setBartender] = useState('');
@@ -6,7 +7,7 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/bartender/login', {
+        fetch(`${APIURL}/bartender/login`, {
             method: 'POST',
             body: JSON.stringify({ 
             user:{ 
@@ -20,7 +21,6 @@ const Login = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken)   
         })
-        console.log(bartender, password)
     }
 
     return (
@@ -55,7 +55,6 @@ const Login = (props) => {
                 <button 
                     className="max-w-auto bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-md border-4 text-white py-1 px-3 rounded" 
                     onClick={handleSubmit}
-                    login={Login}
                     >
                 Submit
                 </button>
