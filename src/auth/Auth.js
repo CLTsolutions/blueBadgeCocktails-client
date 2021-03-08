@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Login from './Login';
 import Register from './Register';
+import loginPic from '../components/Pics/vibes.png'
 
 
 const Auth = ({ updateToken } ) => {
@@ -9,8 +10,13 @@ const Auth = ({ updateToken } ) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+
     return (
+ 
         <div className="flex h-screen items-center justify-center">
+        <div>
+            <img src={ loginPic } alt = 'loginPic' />
+            </div>
             <div className='bg-white bg-opacity-75 max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl w-1/2'>
                 {toggle ? (
                     <Login
