@@ -32,7 +32,7 @@ const SearchCards = ({ createCocktail, drink, index }) => {
               backgroundColor: "white",
             }}
           >
-            <p className="text-2xl text-gray-800 text-center mb-4">
+            <p className="text-2xl text-gray-800 text-center mb-4 font-serif">
               {drink.strDrink}
             </p>
             <img
@@ -40,8 +40,8 @@ const SearchCards = ({ createCocktail, drink, index }) => {
               alt=""
               className="rounded-full h-40 w-40 mx-auto"
             />
-            <h5 className="mt-3 text-lg text-center">Served in:</h5>
-            <p className="text-md text-center mb-2">{drink.strGlass}</p>
+            <h5 className="mt-3 text-lg text-center font-serif">Served in:</h5>
+            <p className="text-md text-center mb-2 font-serif">{drink.strGlass}</p>
             <Button
               className='center'
               onClick={() => createCocktail(drink)}
@@ -57,7 +57,7 @@ const SearchCards = ({ createCocktail, drink, index }) => {
             </Button>
           </FrontSide>
           <BackSide
-            className=" back-card font-thin text-pink-500 text-s"
+            className=" back-card font-thin text-pink-500 text-s font-sans"
             style={{ backgroundColor: "white" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-0 content-between">
@@ -71,6 +71,7 @@ const SearchCards = ({ createCocktail, drink, index }) => {
                 <tbody className="text-center">{ingList}</tbody>
               </table>
             </div>
+            <br/>
             <p className="text-center">{drink.strInstructions}</p>
           </BackSide>
         </Flippy>

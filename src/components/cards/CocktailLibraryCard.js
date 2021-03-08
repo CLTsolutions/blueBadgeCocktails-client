@@ -35,7 +35,7 @@ const CocktailLibraryCard = ({
                         backgroundColor: "white",
                       }}
                     >
-                      <h1 className="text-2xl text-gray-800 text-center mb-4">
+                      <h1 className="text-2xl text-gray-800 text-center mb-4 font-serif">
                         {cocktail.name}
                       </h1>
                       {/* {drink.strDrinkThumb ? ( */}
@@ -51,8 +51,8 @@ const CocktailLibraryCard = ({
                           alt="userDrinkIPic"
                         />
                       {/* )} */}
-                      <h5 className="mt-3 text-lg text-center">Served in:</h5>
-                      <p className="text-md text-center">
+                      <h5 className="mt-3 text-lg text-center font-serif">Served in:</h5>
+                      <p className="text-md text-center font-serif">
                         {cocktail.glassType}
                       </p>
                       <div className=''>

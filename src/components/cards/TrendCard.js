@@ -53,13 +53,13 @@ drink.measures = result.measures.join(", ");
         flipDirection="horizontal" // horizontal or vertical
         style={{ height: 330, width: 250 }}
       >
-        <div className="drinkFront font-display">
+        <div className="drinkFront font-serif">
           <FrontSide
             style={{
               backgroundColor: "white",
             }}
           >
-            <h1 className="name text-center font-semibold">{drink.strDrink}</h1>
+            <h1 className="name text-center font-semibold font-serif">{drink.strDrink}</h1>
             <img
               className="drinkPic text-center"
               src={drink.strDrinkThumb}
@@ -74,9 +74,9 @@ drink.measures = result.measures.join(", ");
           startIcon={<Favorite />}
           variant="outlined"
           color="primary"
-          size="small"
+          size="medium"
           style={{
-              fontSize: 8
+              fontSize: 10
           }}>
               Save Drink
             </Button>
@@ -84,10 +84,10 @@ drink.measures = result.measures.join(", ");
         </div>
         <div className="drinkBack">
           <BackSide
-            className=" back-card font-thin text-pink-500 text-s"
+            className=" back-card font-thin font-sans text-pink-500 text-s"
             style={{ backgroundColor: "white" }}
           >
-            <div className="flex flex-row flex-wrap flex-grow-0 content-between">
+            <div className="flex flex-row flex-wrap flex-grow-2 content-between">
               <table className="table-auto">
       <thead>
       <tr>
