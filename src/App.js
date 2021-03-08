@@ -28,12 +28,15 @@ function App() {
   
   return (
     <div className="App">
+      {!sessionToken ? (
       <Navbar clickLogout={clearToken} token={sessionToken} />
+      ) : ( null
+      )}
       <Route exact path="/home" component={Home} />
       <Route exact path="/mybar" component={() => <MyBar token={sessionToken} />} />
       <Route exact path="/auth" component={() => <Auth updateToken={updateToken}/>} />
   
-      {sessionToken ? <Redirect to='/home' />: <Redirect to='/auth'/>} 
+      {sessionToken ? <Redirect to='/home' /> : <Redirect to='/auth'/>} 
       
     </div>
   );

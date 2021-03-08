@@ -27,7 +27,7 @@ const UpdateModal = () => {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <p>Does this work?</p>
+          <p>Working?</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Modal>
