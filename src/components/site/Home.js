@@ -26,12 +26,14 @@ const Home = ({token}) => {
   }, []);
 
   return (
-    <div className="Drinks">
-     <img className='place-items-center'  src ={TrendingDrinks} alt='trenddrinkpic'/>
-      <div className="grid grid-rows-4 grid-flow-col gap-0">
-        {data?.drinks.slice(0, 12).map((drink, index) => (
-          <TrendCard token={token} drink={drink} key={index} index={index} />
-        ))}
+    <div>
+      <div className='flex justify-center'>
+        <img className='h-96' src ={TrendingDrinks} alt='trenddrinkpic'/>
+      </div>
+      <div className="grid grid-rows-3 grid-flow-col gap-x-0">
+          {data?.drinks.slice(0, 12).map((drink, index) => (
+            <TrendCard token={token} drink={drink} key={index} index={index} />
+          ))}
       </div>
     </div>
   );

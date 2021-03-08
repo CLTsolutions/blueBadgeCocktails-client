@@ -107,19 +107,22 @@ const CocktailLibrary = ({ token }) => {
 
     return (
         <div>
-            <div className=''>
-                <button 
-                    onClick={() => setShowForm(!showForm)}
-                    className='my-5 mx-5 max-w-auto bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-md border-4 text-white py-1 px-3 rounded'
-                >
-                Create New Cocktail
-                </button>
+            {/* Circe's Brand IMG */}
+            <div>
+                <div className='flex justify-center'>
+                    <button 
+                        onClick={() => setShowForm(!showForm)}
+                        className='my-5 mx-5 max-w-auto bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-md border-4 text-white py-1 px-3 rounded'
+                    >
+                    Create New Cocktail
+                    </button>
+                </div>
                 {showForm ? <CreateCocktailForm createCocktail={createCocktail} />
                 : <></>
                 }
             </div>
-            <div className='flex  flex-start justify-center'>
-                <CocktailLibraryCard cocktails={cocktails} setCocktailsToUpdate={setCocktailsToUpdate} fetchDrinks={fetchDrinks} deleteCocktail={deleteCocktail} updateCocktail={updateCocktail} cocktailsToUpdate={cocktailsToUpdate}/>
+            <div className='flex flex-start justify-center'>
+                <CocktailLibraryCard cocktails={cocktails} setCocktailsToUpdate={setCocktailsToUpdate} fetchDrinks={fetchDrinks} deleteCocktail={deleteCocktail} updateCocktail={updateCocktail} cocktailsToUpdate={cocktailsToUpdate} />
             </div>
         </div>
     )
