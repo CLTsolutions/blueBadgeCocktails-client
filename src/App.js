@@ -28,7 +28,7 @@ function App() {
   
   return (
     <div className="App">
-      {!sessionToken ? (
+      {sessionToken ? (
       <Navbar clickLogout={clearToken} token={sessionToken} />
       ) : ( null
       )}
