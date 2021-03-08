@@ -34,8 +34,8 @@ drink.measures = result.measures.join(", ");
   for (let i = 0; i < ingArr.length; i++){
     if(ingArr[i]){
          ingList.push(
-      <tr key={i}>
-        <td>{ingArr[i]}</td>
+      <tr key={i} className='mx-auto'>
+        <td className='flex'>{ingArr[i]}</td>
         <td>{measuresArr[i] || "to taste"}</td>
       </tr>
     )
@@ -45,13 +45,13 @@ drink.measures = result.measures.join(", ");
   // console.log(ingArr, measuresArr)
 
   return (
-    <div key={index} className="drinkCard">
+    <div key={index} className="mx-auto">
       <Flippy
         className="card"
         flipOnHover={false} // default false
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
-        style={{ height: 330, width: 250 }}
+        style={{ height: 375, width: 300 }}
       >
         <div className="drinkFront font-serif">
           <FrontSide
@@ -59,16 +59,14 @@ drink.measures = result.measures.join(", ");
               backgroundColor: "white",
             }}
           >
-            <h1 className="name text-center font-semibold font-serif">{drink.strDrink}</h1>
+            <h1 className="text-2xl text-gray-800 text-center mb-4 font-serif">{drink.strDrink}</h1>
             <img
-              className="drinkPic text-center"
+              className="rounded-full h-40 w-40 mx-auto"
               src={drink.strDrinkThumb}
-              height="30%"
-              width="30%"
               alt=""
             />
-            <h5 className="text-xs text-center">Served in: </h5>
-            <h5 className="text-xs text-center">{drink.strGlass}</h5>
+            <h5 className="mt-3 text-lg text-center font-serif">Served in: </h5>
+            <h5 className="text-md text-center font-serif">{drink.strGlass}</h5>
             <br/>
             <Button onClick={() => createCocktail(drink)}
           startIcon={<Favorite />}
@@ -84,20 +82,19 @@ drink.measures = result.measures.join(", ");
         </div>
         <div className="drinkBack">
           <BackSide
-            className=" back-card font-thin font-sans text-pink-500 text-s"
+            className=" back-card font-thin font-sans text-pink-500 text-lg"
             style={{ backgroundColor: "white" }}
           >
             <div className="flex flex-row flex-wrap flex-grow-2 content-between">
               <table className="table-auto">
       <thead>
-      <tr>
-        <th className="text-s">Ingredient</th>
-        <th className="text-s">Quanity</th>
-      </tr>
+        <tr>
+          <th className="text-lg">Ingredient</th>
+          <th className="text-lg">Measurements</th>
+        </tr>
     </thead>
     <tbody className="text-xs">
       {ingList}
-
     </tbody>
   </table>
             </div>
@@ -140,7 +137,7 @@ drink.measures = result.measures.join(", ");
 
     let ingArr = [];
     let measuresArr = [];
-    // looks into the drink obj for matching keys, pushs to arrays the needed data
+    // looks into the drink obj for matching keys, pushes to arrays the needed data
     Object.entries(aDrink).map((entry, index) => {
       if (entry[0].includes("strIngredient")) {
         ingArr.push(entry[1]);

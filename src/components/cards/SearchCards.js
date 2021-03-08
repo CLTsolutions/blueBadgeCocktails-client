@@ -1,6 +1,7 @@
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import Button from "@material-ui/core/Button";
 import Favorite from "@material-ui/icons/Favorite";
+
 const SearchCards = ({ createCocktail, drink, index }) => {
   // Drink has dirty data, it gets cleaned and returned in a 2 k,v obj {ing:[...], measuers:[...]} of equal len
   let result = parseIngMeasures(drink);
