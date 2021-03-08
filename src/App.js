@@ -32,7 +32,7 @@ function App() {
       <Navbar clickLogout={clearToken} token={sessionToken} />
       ) : ( null
       )}
-      <Route exact path="/home" component={Home} />
+      <Route exact path="/home" component={() => <Home token={sessionToken}/>} />
       <Route exact path="/mybar" component={() => <MyBar token={sessionToken} />} />
       <Route exact path="/auth" component={() => <Auth updateToken={updateToken}/>} />
   

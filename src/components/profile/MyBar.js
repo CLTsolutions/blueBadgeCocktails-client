@@ -9,7 +9,7 @@ const MyBar = ({ token }) => {
         <div className='saved-drinks'>
             <CocktailLibrary token={token} />
             <br/>
-            <Search />
+            <Search token={token}/>
         </div>
     )
 }
