@@ -4,7 +4,7 @@ import "../styles/Home.css";
 import TrendCard from "../cards/TrendCard";
 // import { ListItemSecondaryAction } from "@material-ui/core";
 
-const Home = () => {
+const Home = ({token}) => {
   const [data, setData] = useState();
   const url = `https://www.thecocktaildb.com/api/json/v2/${process.env.REACT_APP_COCKTAILS_API_KEY}/popular.php`;
 
@@ -31,7 +31,7 @@ const Home = () => {
       </h1>
       <div className="grid grid-rows-4 grid-flow-col gap-0">
         {data?.drinks.slice(0, 12).map((drink, index) => (
-          <TrendCard drink={drink} key={index} index={index} />
+          <TrendCard token={token} drink={drink} key={index} index={index} />
         ))}
       </div>
     </div>

@@ -4,9 +4,19 @@ import Favorite from "@material-ui/icons/Favorite";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import { useState } from "react";
 
-const TrendCard = ({ drink, index }) => {
+
+import APIURL from '../../helpers/environment'
+
+const TrendCard = ({ drink, index, token }) => {
   // console.log(drink);
   // Api ing counting
+// Drink has dirty data, it gets cleaned and returned in a 2 k,v obj {ing:[...], measuers:[...]} of equal len
+let result = parseIngMeasures(drink);
+// adding str version of ing/measuers for sake of createDrink call later
+drink.ing = result.ing.join(", ");
+drink.measures = result.measures.join(", ");
+
+
   let ingArr = [];
   let measuresArr = [];
   Object.entries(drink).map((entry, index) => {
@@ -60,7 +70,7 @@ const TrendCard = ({ drink, index }) => {
             <h5 className="text-xs text-center">Served in: </h5>
             <h5 className="text-xs text-center">{drink.strGlass}</h5>
             <br/>
-            <Button onClick={() =>alert('SAVE')}
+            <Button onClick={() => createCocktail(drink)}
           startIcon={<Favorite />}
           variant="outlined"
           color="primary"
@@ -97,6 +107,65 @@ const TrendCard = ({ drink, index }) => {
       </Flippy>
     </div>
   );
+
+
+  function createCocktail (drink) {
+    // name, glassType, ingredients, measurements, instructions
+    console.log(drink)
+    fetch(`${APIURL}/mybar/`, {
+        method: "POST",
+        headers: new Headers ({
+            'Content-Type': 'application/json',
+            'Authorization': token
+        }),
+        body: JSON.stringify ({
+            name: drink.strDrink,
+            alcoholic: drink.strAlcoholic == "Alcoholic",
+            glassType: drink.strGlass,
+            ingredients: drink.ing,
+            measurements: drink.measures,
+            instructions: drink.strInstructions,
+            iced: false,
+            shaken: false,
+            stirred: false
+        }),
+    })
+    .then(res => res.json()) //parsing data
+    .then(json => {
+        console.log(json)
+    })
+}
+
+  function parseIngMeasures (aDrink) { 
+
+    let ingArr = [];
+    let measuresArr = [];
+    // looks into the drink obj for matching keys, pushs to arrays the needed data
+    Object.entries(aDrink).map((entry, index) => {
+      if (entry[0].includes("strIngredient")) {
+        ingArr.push(entry[1]);
+      } else if (entry[0].includes("strMeasure")) {
+        measuresArr.push(entry[1]);
+      }
+    });
+
+    // Correct keys can have null data, this cleans up the data
+    ingArr = ingArr.filter((ing) => ing != null);
+    measuresArr = measuresArr.filter((meas) => meas != null);
+
+    // This fixes the len mismatch should the ing be longer then the measures
+    let toAdd = ingArr.length - measuresArr.length;
+    for (let i = toAdd; toAdd > 0; toAdd--) {
+      measuresArr.push("to taste");
+    }
+  
+    // Bundles the data into an obj for return.
+    return {
+      ing: ingArr,
+      measures: measuresArr
+    };
+  };
 };
+
 
 export default TrendCard;
