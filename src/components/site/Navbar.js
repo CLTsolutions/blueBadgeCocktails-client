@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Logo from '../Pics/transparentlogo.png'
+import SearchIcon from '@material-ui/icons/Search';
 
 const Navbar = ({ clickLogout, token }) => {
 
@@ -11,15 +12,12 @@ const Navbar = ({ clickLogout, token }) => {
     }
 
     return (
-      <nav className="bg-white bg-opacity-50 max-width h-20">
-        <div className='flex justify-between'>
-          <img className="items-left h-24 w-24" src={Logo} alt="logo" />
+      <nav className="bg-white bg-opacity-50 max-width h-20 flex items justify-between">
+        <Link to='/'><img className="items-left h-24 w-24" src={Logo} alt="logo" /></Link>
           <ul className="list-none flex items-center mr-6 space-x-3 ">
-            {!token &&
             <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
               <Link to="/">Home</Link>
             </li>
-            }
             {token ? (
               <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
                 <Link to="/mybar">My Bar</Link>
@@ -30,12 +28,12 @@ const Navbar = ({ clickLogout, token }) => {
               </li>
             )}
             {logoutButton()}
+            <SearchIcon className='text-blue-600' />
             <input
               placeholder="Search"
               className="p-1 rounded-md text-left border-2 border-white focus:outline-none focus:ring-1 focus:border-purple-500"
             ></input>
           </ul>
-        </div>
       </nav>
     );
   };
