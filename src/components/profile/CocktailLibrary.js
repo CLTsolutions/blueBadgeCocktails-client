@@ -9,6 +9,7 @@ const CocktailLibrary = ({ token }) => {
     const [cocktails, setCocktails] = useState([])
     //infinity is a number that's never true by default
     const [cocktailsToUpdate, setCocktailsToUpdate] = useState(Infinity)
+    const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
       fetchDrinks() //fetching drinks again after updating
@@ -106,10 +107,20 @@ const CocktailLibrary = ({ token }) => {
 
     return (
         <div>
+            <div className=''>
+                <button 
+                    onClick={() => setShowForm(!showForm)}
+                    className='my-5 mx-5 max-w-auto bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-md border-4 text-white py-1 px-3 rounded'
+                >
+                Create New Cocktail
+                </button>
+                {showForm ? <CreateCocktailForm createCocktail={createCocktail} />
+                : <></>
+                }
+            </div>
             <div className='flex  flex-start justify-center'>
                 <CocktailLibraryCard cocktails={cocktails} setCocktailsToUpdate={setCocktailsToUpdate} fetchDrinks={fetchDrinks} deleteCocktail={deleteCocktail} updateCocktail={updateCocktail} cocktailsToUpdate={cocktailsToUpdate}/>
             </div>
-            <CreateCocktailForm createCocktail={createCocktail} />
         </div>
     )
 }

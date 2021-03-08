@@ -25,33 +25,32 @@ const SearchCards = ({ createCocktail, drink, index }) => {
           flipOnHover={false}
           flipOnClick={true}
           flipDirection="horizontal"
-          style={{ width: "300px", height: "300px" }}
+          style={{ width: "300px", height: "375px" }}
         >
           <FrontSide
             style={{
               backgroundColor: "white",
             }}
           >
-            <p className="text-2xl text-gray-800 text-center">
+            <p className="text-2xl text-gray-800 text-center mb-4">
               {drink.strDrink}
             </p>
             <img
               src={drink.strDrinkThumb}
               alt=""
-              className="drinkPic text-center"
-              height="30%"
-              width="30%"
+              className="rounded-full h-40 w-40 mx-auto"
             />
-            <h3 className="text-center">Served in:</h3>
-            <p className="text-center">{drink.strGlass}</p>
+            <h5 className="mt-3 text-lg text-center">Served in:</h5>
+            <p className="text-md text-center mb-2">{drink.strGlass}</p>
             <Button
+              className='center'
               onClick={() => createCocktail(drink)}
               startIcon={<Favorite />}
               variant="outlined"
               color="primary"
-              size="small"
+              size="medium"
               style={{
-                fontSize: 8,
+                fontSize: 10,
               }}
             >
               Save Drink
