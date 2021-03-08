@@ -15,9 +15,11 @@ const Navbar = ({ clickLogout, token }) => {
         <div className='flex justify-between'>
           <img className="items-left h-24 w-24" src={Logo} alt="logo" />
           <ul className="list-none flex items-center mr-6 space-x-3 ">
+            {!token &&
             <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
               <Link to="/">Home</Link>
             </li>
+            }
             {token ? (
               <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
                 <Link to="/mybar">My Bar</Link>
