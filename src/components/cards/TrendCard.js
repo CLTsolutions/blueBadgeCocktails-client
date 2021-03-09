@@ -2,7 +2,6 @@ import "../styles/TrendCard.css";
 import Button from "@material-ui/core/Button";
 import Favorite from "@material-ui/icons/Favorite";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
-import { useState } from "react";
 
 
 import APIURL from '../../helpers/environment'
@@ -116,7 +115,7 @@ drink.measures = result.measures.join(", ");
         }),
         body: JSON.stringify ({
             name: drink.strDrink,
-            alcoholic: drink.strAlcoholic == "Alcoholic",
+            alcoholic: drink.strAlcoholic === "Alcoholic",
             glassType: drink.strGlass,
             ingredients: drink.ing,
             measurements: drink.measures,

@@ -1,36 +1,37 @@
 import { useState, useEffect } from 'react';
 import CreateCocktailForm from '../cards/CreateCocktailForm';
-// import UpdateCocktailForm from '../cards/UpdateCocktailForm'
 import APIURL from '../../helpers/environment'
 import CocktailLibraryCard from '../cards/CocktailLibraryCard';
 
 const CocktailLibrary = ({ token }) => {
-    // console.log(token);
     const [cocktails, setCocktails] = useState([])
     //infinity is a number that's never true by default
     const [cocktailsToUpdate, setCocktailsToUpdate] = useState(Infinity)
     const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
-      fetchDrinks() //fetching drinks again after updating
+        token && fetchDrinks() //fetching drinks again after updating
     }, []);
+
+    useEffect(() => {
+        fetchDrinks() //fetching drinks again after updating
+      }, [token]);
 
     const fetchDrinks = () => {
         fetch(`${APIURL}/mybar/`, {
-                    method: "GET",
-                    headers: new Headers({
-                        "Content-Type": "application/json",
-                        "Authorization": token,
-                    }),
-                })
-                .then((res) => res.json())
-                .then((json) => {
-                //getting cocktails, mapping, and adding properties to them (storing boolean values on them)
-                //this is so when update is clicked, it's set to true and form will show.
-                    // json.cocktails.map(cocktail => cocktail.isUpdating = false)
-                    setCocktails(json.cocktails); //setting array to be the result
-                    // console.log(json.cocktails);
-                });
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": token,
+            }),
+        })
+        .then((res) => res.json())
+        .then((json) => {
+        //getting cocktails, mapping, and adding properties to them (storing boolean values on them)
+        //this is so when update is clicked, it's set to true and form will show.
+            // json.cocktails.map(cocktail => cocktail.isUpdating = false)
+            setCocktails(json.cocktails); //setting array to be the result
+        });
     }
 
     const deleteCocktail = (id) => { //passing cocktail id NOT user's id
@@ -49,7 +50,6 @@ const CocktailLibrary = ({ token }) => {
 
     const createCocktail = (e, name, glassType, ingredients, measurements, instructions) => {
         e.preventDefault()
-        // console.log({name, glassType, ingredients, measurements, instructions});
         fetch(`${APIURL}/mybar/`, {
             method: "POST",
             headers: new Headers ({
@@ -72,12 +72,10 @@ const CocktailLibrary = ({ token }) => {
         .then(json => {
             //what is 'isUpdating'? See above comments in our GET.
             fetchDrinks()
-            // console.log(json)
         })
     }
 
     const updateCocktail = (e, id, name, glassType, ingredients, measurements, instructions) => {
-        // console.log({name, glassType, ingredients, measurements, instructions});
         fetch(`${APIURL}/mybar/${id}`, {
             method: "PUT",
             headers: new Headers ({
@@ -101,13 +99,11 @@ const CocktailLibrary = ({ token }) => {
             //what is 'isUpdating'? See above comments in our GET.
             fetchDrinks()
             setCocktailsToUpdate(Infinity)
-            // console.log(json)
         })
     }
 
     return (
         <div>
-            {/* Circe's Brand IMG */}
             <div>
                 <div className='flex justify-center'>
                     <button 

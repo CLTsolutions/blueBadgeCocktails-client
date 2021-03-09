@@ -1,32 +1,22 @@
 import { useState } from "react";
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import UpdateCocktailForm from "./UpdateCocktailForm";
 
-const UpdateModal = ({ updateCocktail, id, cocktail, fetchDrinks }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+const UpdateModal = ({ updateCocktail, id, cocktail, fetchDrinks, setCocktailsToUpdate }) => {
+  const [isModalVisible, setIsModalVisible] = useState(true);
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setCocktailsToUpdate(Infinity)
   };
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
       <Modal
         title="Update your cocktail."
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
+        footer = {null}
       >
         <UpdateCocktailForm
           updateCocktail={updateCocktail}

@@ -15,12 +15,12 @@ const Navbar = ({ clickLogout, token }) => {
       <nav className="bg-white bg-opacity-50 max-width h-20 flex items justify-between">
         <Link to='/home'><img className="items-left h-28 w-28" src={Logo} alt="logo" /></Link>
           <ul className="list-none flex items-center mr-6 space-x-3 ">
-            <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
-              <Link to="/home">Home</Link>
+            <li>
+              <Link to="/home" className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">Home</Link>
             </li>
             {token ? (
-              <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
-                <Link to="/mybar">My Bar</Link>
+              <li>
+                <Link to="/mybar" className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">My Bar</Link>
               </li>
             ) : (
               <li className="text-blue-600 hover:bg-purple-500 hover:text-white px-3 py-2 rounded-md font-medium">
@@ -29,10 +29,6 @@ const Navbar = ({ clickLogout, token }) => {
             )}
             {logoutButton()}
             <Link to='/search'><SearchIcon className='text-blue-600' /></Link>
-            {/* <input
-              placeholder="Search"
-              className="p-1 rounded-md text-left border-2 border-white focus:outline-none focus:ring-1 focus:border-purple-500"
-            ></input> */}
           </ul>
       </nav>
     );
