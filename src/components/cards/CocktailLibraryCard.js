@@ -1,9 +1,5 @@
-import UpdateCocktailForm from "../cards/UpdateCocktailForm";
-import Flippy, { FrontSide, BackSide } from "react-flippy";
 import userDrinkPic from "../Pics/userdrink.jpg";
 import UpdateModal from "./UpdateModal";
-import { Button } from "antd";
-//random comment
 
 const CocktailLibraryCard = ({
   cocktails,
@@ -14,11 +10,10 @@ const CocktailLibraryCard = ({
   cocktailsToUpdate,
 }) => {
   return (
-    // <div className="w-full flex justify-center flex-wrap items-center">
     <div className="grid grid-cols-4">
       {cocktails?.length > 0 ? (
         <>
-          {cocktails.map((cocktail) => {
+          {cocktails?.map((cocktail) => {
             //map is returning drink card for user's drinks
             return (
               <div
@@ -59,7 +54,7 @@ const CocktailLibraryCard = ({
                   <button
                     className="focus:outline-none focus:ring-1 focus:ring-pink-300 bg-pink-500 hover:bg-pink-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-pink-200 font-sans"
                     onClick={() => {
-                      cocktailsToUpdate == Infinity
+                      cocktailsToUpdate === Infinity
                         ? setCocktailsToUpdate(cocktail.id)
                         : setCocktailsToUpdate(Infinity);
                     }}
@@ -68,17 +63,12 @@ const CocktailLibraryCard = ({
                   </button>
                   {/* below toggles to update form when update button is clicked */}
                   {cocktailsToUpdate === cocktail.id ? (
-                    // <UpdateCocktailForm
-                    //   updateCocktail={updateCocktail}
-                    //   cocktail={cocktail}
-                    //   id={cocktail.id}
-                    //   fetchDrinks={fetchDrinks}
-                    // />
                     <UpdateModal
                       updateCocktail={updateCocktail}
                       cocktail={cocktail}
                       id={cocktail.id}
                       fetchDrinks={fetchDrinks}
+                      setCocktailsToUpdate={setCocktailsToUpdate}
                     />
                   ) : (
                     <button

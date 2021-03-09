@@ -5,7 +5,7 @@ const MyBar = ({ token }) => {
     return (
         <div className='saved-drinks'>
             <div className= 'flex justify-center'>
-            <img className='h-60' src={barcart} />
+            <img className='h-60' src={barcart} alt='barcart logo' />
             </div>
             <CocktailLibrary token={token} />
             <br/>

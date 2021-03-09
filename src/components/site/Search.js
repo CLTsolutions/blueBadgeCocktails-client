@@ -33,7 +33,7 @@ const Search = ({token}) => {
             }),
             body: JSON.stringify ({
                 name: drink.strDrink,
-                alcoholic: drink.strAlcoholic == "Alcoholic",
+                alcoholic: drink.strAlcoholic === "Alcoholic",
                 glassType: drink.strGlass,
                 ingredients: drink.ing,
                 measurements: drink.measures,
