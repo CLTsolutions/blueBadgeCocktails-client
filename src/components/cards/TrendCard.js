@@ -8,8 +8,7 @@ import { useState } from "react";
 import APIURL from '../../helpers/environment'
 
 const TrendCard = ({ drink, index, token }) => {
-  // console.log(drink);
-  // Api ing counting
+// Api ing counting
 // Drink has dirty data, it gets cleaned and returned in a 2 k,v obj {ing:[...], measuers:[...]} of equal len
 let result = parseIngMeasures(drink);
 // adding str version of ing/measuers for sake of createDrink call later

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
-import TrendingDrinks from '../Pics/trendingDrinks.png'
+import TrendingDrinks from '../Pics/trendingDrinksCropped.png'
 import TrendCard from "../cards/TrendCard";
 // import { ListItemSecondaryAction } from "@material-ui/core";
 
