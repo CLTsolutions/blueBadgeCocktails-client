@@ -10,12 +10,8 @@ const CocktailLibrary = ({ token }) => {
     const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
-        token && fetchDrinks() //fetching drinks again after updating
-    }, []);
-
-    useEffect(() => {
         fetchDrinks() //fetching drinks again after updating
-      }, [token]);
+      }, []);
 
     const fetchDrinks = () => {
         fetch(`${APIURL}/mybar/`, {

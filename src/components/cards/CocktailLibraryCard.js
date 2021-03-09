@@ -23,7 +23,7 @@ const CocktailLibraryCard = ({
                 <h1 className="text-2xl text-gray-800 text-center mb-3 font-serif">
                   {cocktail.name}
                 </h1>
-                {/* {drink.strDrinkThumb ? ( */}
+                {/* {drink.strDrinkThumbs ? ( */}
                 {/* <img
                       className="rounded-full h-40 w-40 mx-auto"
                       src={drink.strDrinkThumb}
