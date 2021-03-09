@@ -10,12 +10,11 @@ const UpdateCocktailForm = ({ updateCocktail, id, fetchDrinks, cocktail }) => {
   const [updateIsIced, setUpdateIsIced] = useState(true);
   const [updateIsShaken, setUpdateIsShaken] = useState(true);
   const [updateIsStirred, setUpdateIsStirred] = useState(true);
-  // console.log(id)
 
   return (
     <>
       <p className="text-center font-bold text-gray-700 text-2xl mb-5">
-        Create a New Cocktail
+        Update Cocktail
       </p>
       <form
         className="flex flex-col space-y-3"

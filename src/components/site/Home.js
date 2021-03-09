@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
-import TrendingDrinks from '../Pics/trendingDrinks.png'
+import TrendingDrinks from '../Pics/trendingDrinksCropped.png'
 import TrendCard from "../cards/TrendCard";
 // import { ListItemSecondaryAction } from "@material-ui/core";
 
@@ -28,7 +28,7 @@ const Home = ({token}) => {
   return (
     <div>
       <div className='flex justify-center'>
-        <img className='h-96' src ={TrendingDrinks} alt='trenddrinkpic'/>
+        <img className='h-60' src ={TrendingDrinks} alt='trenddrinkpic'/>
       </div>
       <div className="grid grid-rows-3 grid-flow-col gap-x-0">
           {data?.drinks.slice(0, 12).map((drink, index) => (
