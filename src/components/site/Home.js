@@ -28,7 +28,7 @@ const Home = ({token}) => {
   return (
     <div>
       <div className='flex justify-center'>
-        <img className='h-96' src ={TrendingDrinks} alt='trenddrinkpic'/>
+        <img className='h-60' src ={TrendingDrinks} alt='trenddrinkpic'/>
       </div>
       <div className="grid grid-rows-3 grid-flow-col gap-x-0">
           {data?.drinks.slice(0, 12).map((drink, index) => (
