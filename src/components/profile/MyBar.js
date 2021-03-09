@@ -1,15 +1,14 @@
-import Search from '../site/Search';
 import CocktailLibrary from './CocktailLibrary';
-import SearchForm from "../cards/SearchForm";
-// import CocktailForm from '../cards/CocktailForm';
+import barcart from '../Pics/barcartCropped.png'
 
 const MyBar = ({ token }) => {
-    // console.log(token);
     return (
         <div className='saved-drinks'>
+            <div className= 'flex justify-center'>
+            <img className='h-60' src={barcart} alt='barcart logo' />
+            </div>
             <CocktailLibrary token={token} />
             <br/>
-            <Search />
         </div>
     )
 }

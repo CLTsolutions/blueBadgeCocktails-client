@@ -4,6 +4,8 @@ import Auth from "../src/auth/Auth";
 import Home from "./components/site/Home";
 import MyBar from "./components/profile/MyBar";
 import Navbar from "./components/site/Navbar";
+import Search from "./components/site/Search";
+import "antd/dist/antd.css";
 // import Footer from './components/site/Footer'
 
 function App() {
@@ -18,23 +20,39 @@ function App() {
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     setSessionToken(newToken);
-    // console.log(sessionToken);
   };
 
   const clearToken = () => {
     localStorage.clear();
     setSessionToken("");
   };
-  
+
   return (
     <div className="App">
-      <Navbar clickLogout={clearToken} token={sessionToken} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/mybar" component={() => <MyBar token={sessionToken} />} />
-      <Route exact path="/auth" component={() => <Auth updateToken={updateToken}/>} />
-  
-      {sessionToken ? <Redirect to='/home' />: <Redirect to='/auth'/>} 
-      
+      {sessionToken ? (
+        <Navbar clickLogout={clearToken} token={sessionToken} />
+      ) : null}
+      <Route
+        exact
+        path="/home"
+        component={() => <Home token={sessionToken} />}
+      />
+      <Route
+        exact
+        path="/mybar"
+        component={() => <MyBar token={sessionToken} />}
+      />
+      <Route
+        exact
+        path="/search"
+        component={() => <Search token={sessionToken} />}
+      />
+      <Route
+        exact
+        path="/auth"
+        component={() => <Auth updateToken={updateToken} />}
+      />
+      {sessionToken ? <Redirect to="/home" /> : <Redirect to="/auth" />}
     </div>
   );
 }

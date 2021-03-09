@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
+import TrendingDrinks from '../Pics/trendingDrinksCropped.png'
 import TrendCard from "../cards/TrendCard";
 // import { ListItemSecondaryAction } from "@material-ui/core";
 
-const Home = () => {
+const Home = ({token}) => {
   const [data, setData] = useState();
   const url = `https://www.thecocktaildb.com/api/json/v2/${process.env.REACT_APP_COCKTAILS_API_KEY}/popular.php`;
 
@@ -25,14 +26,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="Drinks">
-      <h1 className="my-5 font-display text-white text-3xl text-center">
-        Trending Drinks
-      </h1>
-      <div className="grid grid-rows-4 grid-flow-col gap-0">
-        {data?.drinks.slice(0, 12).map((drink, index) => (
-          <TrendCard drink={drink} key={index} index={index} />
-        ))}
+    <div>
+      <div className='flex justify-center'>
+        <img className='h-60' src ={TrendingDrinks} alt='trenddrinkpic'/>
+      </div>
+      <div className="grid grid-rows-3 grid-flow-col gap-x-0">
+          {data?.drinks.slice(0, 12).map((drink, index) => (
+            <TrendCard token={token} drink={drink} key={index} index={index} />
+          ))}
       </div>
     </div>
   );
