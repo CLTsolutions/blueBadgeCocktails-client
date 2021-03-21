@@ -1,6 +1,8 @@
 # [The Bar Cart](https://czc-thebarcart.herokuapp.com/auth)
 <br />
 
+![image](https://user-images.githubusercontent.com/73909880/111911276-46c5be00-8a3b-11eb-98d6-5bdbeaf76820.png)
+
 #### Made and Styled with:
 * React
 * Tailwind CSS
