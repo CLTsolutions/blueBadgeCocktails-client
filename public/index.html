@@ -1,8 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=”en” prefix=”og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      property=”og:title”
+      content=”Example Title”
+    /><meta
+      name=”image”
+      property=”og:image”
+      content=”%PUBLIC_URL%/barcart.png”
+    /><meta
+      name=”author”
+      content=”Example Author”
+    /><meta
+      property=”og:description”
+      content=”Example Description“
+    /><meta
+      property=”og:url”
+      content=”https://example.com"
+    />
+
 
     <title>The Bar Cart</title>
 
@@ -11,10 +29,16 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <!--This shares meta data about our app with the browser-->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-    <link href="./tailwind.css" rel="stylesheet">
+    <link href="./tailwind.css" rel="stylesheet" />
   </head>
   <body>
     <!--If the user has disabled javascript this will show to the screen
